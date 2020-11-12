@@ -172,6 +172,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     lineage.livedisplay@2.0-service-sdm
 
+# Media
+PRODUCT_PACKAGES += \
+    vendor.qti.hardware.capabilityconfigstore@1.0
+
 # Net
 PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
