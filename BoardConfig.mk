@@ -1,12 +1,22 @@
-
-# Copyright (C) 2019 The LineageOS Project
 #
-# SPDX-License-Identifier: Apache-2.0
+# Copyright (C) 2016 The Android Open-Source Project
+# Copyright (C) 2021 The Evolution X Project
+# Copyright (C) 2021 The LineageOS Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
 #
 
 BOARD_VENDOR := xiaomi
-
-BUILD_BROKEN_DUP_RULES := true
 
 DEVICE_PATH := device/xiaomi/raphael
 
@@ -18,14 +28,14 @@ TARGET_USE_SDCLANG := true
 
 # Architecture
 TARGET_ARCH := arm64
-TARGET_ARCH_VARIANT := armv8-a
+TARGET_ARCH_VARIANT := armv8-2a
 TARGET_CPU_ABI := arm64-v8a
 TARGET_CPU_ABI2 :=
 TARGET_CPU_VARIANT := generic
 TARGET_CPU_VARIANT_RUNTIME := cortex-a76
 
 TARGET_2ND_ARCH := arm
-TARGET_2ND_ARCH_VARIANT := armv8-a
+TARGET_2ND_ARCH_VARIANT := armv8-2a
 TARGET_2ND_CPU_ABI := armeabi-v7a
 TARGET_2ND_CPU_ABI2 := armeabi
 TARGET_2ND_CPU_VARIANT := cortex-a9
@@ -33,12 +43,68 @@ TARGET_2ND_CPU_VARIANT_RUNTIME := cortex-a76
 
 TARGET_USES_64_BIT_BINDER := true
 
+# ANT+
+BOARD_ANT_WIRELESS_DEVICE := "qualcomm-hidl"
+
 # Assert
 TARGET_OTA_ASSERT_DEVICE := raphael,raphaelin
+
+# APEX
+DEXPREOPT_GENERATE_APEX_IMAGE := true
+
+# Audio
+AUDIO_FEATURE_ENABLED_AAC_ADTS_OFFLOAD := true
+AUDIO_FEATURE_ENABLED_AUDIOSPHERE := true
+AUDIO_FEATURE_ENABLED_EXTN_FORMATS := true
+AUDIO_FEATURE_ENABLED_FM_POWER_OPT := true
+AUDIO_FEATURE_ENABLED_HDMI_SPK := true
+AUDIO_FEATURE_ENABLED_PROXY_DEVICE := true
+USE_CUSTOM_AUDIO_POLICY := 1
+USE_XML_AUDIO_POLICY_CONF := 1
+
+# Bluetooth
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth/include
+BOARD_HAVE_BLUETOOTH_QCOM := true
+TARGET_FWK_SUPPORTS_FULL_VALUEADDS := true
+TARGET_USE_QTI_BT_STACK := true
 
 # Bootloader
 TARGET_BOOTLOADER_BOARD_NAME := msmnile
 TARGET_NO_BOOTLOADER := true
+
+# Build
+BUILD_BROKEN_DUP_RULES := true
+
+# Camera
+TARGET_USES_QTI_CAMERA_DEVICE := true
+
+# Charger Mode
+BOARD_CHARGER_ENABLE_SUSPEND := true
+
+# Display
+TARGET_USES_HWC2 := true
+
+# DRM
+TARGET_ENABLE_MEDIADRM_64 := true
+
+# Filesystem
+TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/configs/config.fs
+
+# FM
+BOARD_HAS_QCA_FM_SOC := "cherokee"
+BOARD_HAVE_QCOM_FM := true
+
+# FOD
+TARGET_INPUTDISPATCHER_SKIP_EVENT_KEY := 338
+TARGET_SURFACEFLINGER_FOD_LIB := \
+    //$(DEVICE_PATH):libfod_extension.raphael
+TARGET_USES_FOD_ZPOS := true
+
+# HIDL
+DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
+    $(DEVICE_PATH)/framework_compatibility_matrix.xml
+DEVICE_FRAMEWORK_MANIFEST_FILE := \
+    $(DEVICE_PATH)/framework_manifest.xml
 
 # Kernel
 BOARD_BOOTIMG_HEADER_VERSION := 1
@@ -59,112 +125,85 @@ ifeq ($(TARGET_PREBUILT_KERNEL),)
   TARGET_KERNEL_SOURCE := kernel/xiaomi/raphael
 endif
 
-# Platform
-BOARD_USES_QCOM_HARDWARE := true
-TARGET_BOARD_PLATFORM := msmnile
-
-# APEX
-DEXPREOPT_GENERATE_APEX_IMAGE := true
-
-# Audio
-AUDIO_FEATURE_ENABLED_AAC_ADTS_OFFLOAD := true
-AUDIO_FEATURE_ENABLED_EXTN_FORMATS := true
-AUDIO_FEATURE_ENABLED_FM_POWER_OPT := true
-AUDIO_FEATURE_ENABLED_HDMI_SPK := true
-AUDIO_FEATURE_ENABLED_PROXY_DEVICE := true
-USE_CUSTOM_AUDIO_POLICY := 1
-USE_XML_AUDIO_POLICY_CONF := 1
-
-# Bluetooth
-BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth/include
-TARGET_FWK_SUPPORTS_FULL_VALUEADDS := true
-TARGET_USE_QTI_BT_STACK := true
-
-# Camera
-TARGET_USES_QTI_CAMERA_DEVICE := true
-
-# Charger Mode
-BOARD_CHARGER_ENABLE_SUSPEND := true
-
-# Display
-TARGET_USES_HWC2 := true
-
-# DRM
-TARGET_ENABLE_MEDIADRM_64 := true
-
-# Filesystem
-TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
-
-# FM
-BOARD_HAS_QCA_FM_SOC := "cherokee"
-BOARD_HAVE_QCOM_FM := true
-
-# FOD
-TARGET_SURFACEFLINGER_FOD_LIB := //$(DEVICE_PATH):libfod_extension.raphael
-TARGET_USES_FOD_ZPOS := true
-
-# HIDL
-DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := $(DEVICE_PATH)/framework_compatibility_matrix.xml
-DEVICE_FRAMEWORK_MANIFEST_FILE := $(DEVICE_PATH)/framework_manifest.xml
-
-# Init
-TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_raphael
-TARGET_RECOVERY_DEVICE_MODULES := libinit_raphael
-
-# Partitions
+# Partition (Boot)
 BOARD_BOOTIMAGE_PARTITION_SIZE := 134217728
-BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
+BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
+
+# Partition (Cache)
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_CACHEIMAGE_PARTITION_SIZE := 268435456
+
+# Partition (Dtbo)
 BOARD_DTBOIMG_PARTITION_SIZE := 33554432
-BOARD_FLASH_BLOCK_SIZE := 262144 # (BOARD_KERNEL_PAGESIZE * 64)
+
+# Partition (Recovery)
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 67108864
+
+# Partition (System)
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 3758096384
+
+# Partition (Userdata)
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 57453555712
 
+# Partition (Vendor)
 TARGET_COPY_OUT_VENDOR := vendor
+
+# Partition (SystemAsRoot, Metadata)
+BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
+BOARD_USES_METADATA_PARTITION := true
+
+# Partition (Userimages)
 TARGET_USERIMAGES_USE_EXT4 := true
 TARGET_USES_MKE2FS := true
 
-# Recovery
-TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
-TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
-
-# RenderScript
-OVERRIDE_RS_DRIVER := libRSDriver_adreno.so
-
-# Releasetools
-TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_raphael
-TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
-
-# Sepolicy
-include device/qcom/sepolicy/SEPolicy.mk
-BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
+# Platform
+TARGET_BOARD_PLATFORM := msmnile
 
 # Power
 TARGET_USES_INTERACTION_BOOST := true
 TARGET_TAP_TO_WAKE_NODE := "/dev/input/event3"
 
+# QCOM
+BOARD_USES_QCOM_HARDWARE := true
+
+# Recovery
+TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/rootdir/etc/fstab.qcom
+TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
+
+# Releasetools
+TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_raphael
+TARGET_RELEASETOOLS_EXTENSIONS := $(DEVICE_PATH)
+
+# Security
+VENDOR_SECURITY_PATCH := 2021-02-01
+
+# Sensors
+USE_SENSOR_MULTI_HAL := true
+
+# Sepolicy
+include device/qcom/sepolicy/SEPolicy.mk
+BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
+
 # Telephony
 TARGET_USES_ALTERNATIVE_MANUAL_NETWORK_SELECT := true
 
 # Treble
-BOARD_VNDK_VERSION := current
 PRODUCT_FULL_TREBLE_OVERRIDE := true
+
+# Vendor init
+TARGET_INIT_VENDOR_LIB := //$(DEVICE_PATH):libinit_raphael
+TARGET_RECOVERY_DEVICE_MODULES := libinit_raphael
 
 # Verified Boot
 BOARD_AVB_ENABLE := true
 BOARD_AVB_MAKE_VBMETA_IMAGE_ARGS += --flag 2
-BOARD_AVB_RECOVERY_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
 BOARD_AVB_RECOVERY_ALGORITHM := SHA256_RSA4096
+BOARD_AVB_RECOVERY_KEY_PATH := external/avb/test/data/testkey_rsa4096.pem
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX := 1
 BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 1
 
-# Enable real time lockscreen charging current values
-BOARD_GLOBAL_CFLAGS += -DBATTERY_REAL_INFO
+# VNDK
+BOARD_VNDK_VERSION := current
 
 # Inherit from the proprietary version
 -include vendor/xiaomi/raphael/BoardConfigVendor.mk
-
-# FOD key for InputDispatcher to skip
-TARGET_INPUTDISPATCHER_SKIP_EVENT_KEY := 338
