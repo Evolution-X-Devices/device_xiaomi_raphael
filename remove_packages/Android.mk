@@ -4,7 +4,9 @@ include $(CLEAR_VARS)
 LOCAL_MODULE := RemovePackages
 LOCAL_MODULE_CLASS := APPS
 LOCAL_MODULE_TAGS := optional
-LOCAL_OVERRIDES_PACKAGES := AppDirectedSMSService Camera2 CarrierSetup ConnMO DCMO Drive Maps MyVerizonServices OBDM_Permissions OemDmTrigger PrebuiltGmail Snap SprintDM SprintHM USCCDM VZWAPNLib VzwOmaTrigger YouTube YouTubeMusicPrebuilt obdm_stub
+LOCAL_OVERRIDES_PACKAGES := AmbientSensePrebuilt AppDirectedSMSService Camera2 ConnMO DCMO
+LOCAL_OVERRIDES_PACKAGES += MyVerizonServices OBDM_Permissions OemDmTrigger Snap SprintDM
+LOCAL_OVERRIDES_PACKAGES += SprintHM USCCDM VZWAPNLib VzwOmaTrigger obdm_stub
 LOCAL_UNINSTALLABLE_MODULE := true
 LOCAL_CERTIFICATE := PRESIGNED
 LOCAL_SRC_FILES := /dev/null

@@ -2,5 +2,9 @@ type sensors_prop, property_type;
 type vendor_adsprpc_prop, property_type;
 type vendor_audio_prop, property_type;
 type vendor_camera_prop, property_type;
+type vendor_cap_configstore_dbg_prop, property_type;
 type vendor_display_prop, property_type;
 type vendor_displayfeature_prop, property_type;
+
+# Fingerprint
+type vendor_fp_prop, property_type;

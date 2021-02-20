@@ -1,5 +1,6 @@
 #
-# Copyright (C) 2019 The LineageOS Project
+# Copyright (C) 2020-2021 The LineageOS Project
+# Copyright (C) 2020-2021 The Evolution X Project
 #
 # SPDX-License-Identifier: Apache-2.0
 #
@@ -10,7 +11,6 @@ $(call inherit-product, device/xiaomi/raphael/device.mk)
 EVO_BUILD_TYPE := OFFICIAL
 EXTRA_FOD_ANIMATIONS := true
 TARGET_BOOT_ANIMATION_RES := 1080
-WITH_GAPPS := true
 $(call inherit-product, vendor/evolution/config/common_full_phone.mk)
 
 # Device identifier. This must come after all inclusions.

@@ -1,0 +1,6 @@
+type hal_mtdservice_default, domain;
+type hal_mtdservice_default_exec, exec_type, file_type, vendor_file_type;
+
+dontaudit hal_mtdservice_default self:capability { dac_override dac_read_search };
+
+allow hal_mtdservice_default persist_data_file:dir getattr;

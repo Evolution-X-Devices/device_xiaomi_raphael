@@ -1,0 +1,4 @@
+type hal_capabilityconfigstore_qti_default, domain;
+
+allow hal_capabilityconfigstore_qti_default mnt_vendor_file:dir { getattr search };
+allow hal_capabilityconfigstore_qti_default vendor_cap_configstore_dbg_prop:file { read };

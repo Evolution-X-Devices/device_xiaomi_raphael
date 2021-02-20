@@ -6,6 +6,7 @@ type adsprpcd_file, file_type;
 type bt_firmware_file, file_type;
 type firmware_file, file_type;
 type persist_file, file_type;
+type persist_data_file, file_type , vendor_persist_type;
 
 #NNHAL files
 type hal_neuralnetworks_data_file, file_type, data_file_type;
@@ -31,3 +32,5 @@ type sysfs_soc, sysfs_type, fs_type;
 
 # Wifi Data file
 type wifi_vendor_data_file, file_type, data_file_type;
+
+type debugfs_ipc, debugfs_type, fs_type;

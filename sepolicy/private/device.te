@@ -1,4 +1,7 @@
 type fm_radio_device, dev_type;
 
+#Define the logging device type
+type diag_device, dev_type, mlstrustedobject;
+
 #Add qdsp_device type
 type qdsp_device, dev_type, mlstrustedobject;

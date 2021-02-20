@@ -135,7 +135,7 @@ void vendor_load_properties() {
 
     property_override("ro.boot.hardware.revision", hardware_revision.c_str());
     property_override("org.evolution.build_donate_url", "https://paypal.me/joeyhuab");
-    property_override("org.evolution.build_maintainer", "Joey Huab");
+    property_override("org.evolution.build_maintainer", "Stallix");
     property_override("org.evolution.build_support_url", "https://t.me/EvolutionXRaphael");
     property_override("ro.apex.updatable", "true");
     property_override("ro.oem_unlock_supported", "0");

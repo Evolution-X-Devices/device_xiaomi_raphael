@@ -1,0 +1,8 @@
+type hal_rcsservice, domain;
+type hal_rcsservice_exec, exec_type, vendor_file_type, file_type;
+
+allow hal_rcsservice sysfs:file { open read };
+allow hal_rcsservice default_android_hwservice:hwservice_manager { find };
+allow hal_rcsservice default_android_hwservice:hwservice_manager { add };
+allow hal_rcsservice diag_device:chr_file { open read write getattr };
+allow hal_rcsservice diag_device:chr_file { ioctl };

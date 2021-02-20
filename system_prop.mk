@@ -2,10 +2,13 @@
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.bt.a2dp.aac_whitelist=false \
     persist.vendor.btstack.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aptxadaptive-aac-ldac \
+    persist.vendor.btstack.connect.peer_earbud=true \
     persist.vendor.btstack.enable.splita2dp=true \
     persist.vendor.btstack.enable.twsplus=true \
     persist.vendor.btstack.enable.twsplussho=true \
+    ro.bluetooth.emb_wp_mode=false \
     ro.bluetooth.library_name=libbluetooth_qti.so \
+    ro.bluetooth.wipower=false \
     vendor.bluetooth.soc=cherokee
 
 # Camera
@@ -14,8 +17,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.camera.sat.fallback.dist.d=10 \
     persist.camera.sat.fallback.luxindex=330 \
     persist.camera.sat.fallback.lux.d=50 \
-    persist.vendor.camera.enableNCSService=TRUE \
-    persist.vendor.camera.enableTOFInterface=TRUE \
+    vendor.camera.enableNCSService=TRUE \
+    vendor.camera.enableTOFInterface=TRUE \
     vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.lineageos.snap
 
 # CNE and DPM
@@ -45,19 +48,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.displayfeature.dc_backlight.threshold=610 \
     persist.displayfeature.dc_backlight.enable=false \
     persist.fod.modified.dc_status=false \
-    sys.displayfeature.hbm.enable=true
+    sys.displayfeature_hidl=true
 
-# Enable blurs
-PRODUCT_PRODUCT_PROPERTIES += \
-    ro.surface_flinger.supports_background_blur=1 \
-    ro.sf.blurs_are_expensive=1
-
-# Gboard
+# Fingerprint
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.com.google.ime.kb_pad_port_l=7 \
-    ro.com.google.ime.kb_pad_port_r=7 \
-    ro.com.google.ime.kb_pad_land_l=14 \
-    ro.com.google.ime.kb_pad_land_r=14
+    ro.hardware.fp.fod=true \
+    persist.vendor.sys.fp.fod.location.X_Y=445,1931 \
+    persist.vendor.sys.fp.fod.size.width_height=190,190
 
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -68,6 +65,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
+    persist.mm.enable.prefetch=true \
     media.stagefright.enable-player=true \
     media.stagefright.enable-http=true \
     media.stagefright.enable-aac=true \
@@ -78,7 +76,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
     mmp.enable.3g2=true \
     media.aac_51_output_enabled=true \
     mm.enable.smoothstreaming=true \
-    media.settings.xml=/system/etc/media_profiles_vendor.xml \
+    media.settings.xml=/vendor/etc/media_profiles_vendor.xml \
     vendor.mm.enable.qcom_parser=63963135
 
 # Memory optimizations
@@ -93,7 +91,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     DEVICE_PROVISIONED=1 \
     rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so \
-    ril.subscription.types=RUIM \
+    ril.subscription.types=NV,RUIM \
     ro.telephony.default_cdma_sub=0 \
     ro.telephony.default_network=22,22 \
     persist.data.iwlan=1 \
@@ -128,13 +126,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Subsystem ramdump
 PRODUCT_PROPERTY_OVERRIDES += \
     persist.vendor.ssr.restart_level=ALL_ENABLE
-
-# USB debugging
-PRODUCT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp,adb \
-    ro.adb.secure=0 \
-    ro.secure=0 \
-    ro.debuggable=1
 
 # Vendor
 PRODUCT_PROPERTY_OVERRIDES += \
