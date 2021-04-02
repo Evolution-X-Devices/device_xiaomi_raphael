@@ -29,4 +29,9 @@
 /sys/kernel/gpu/gpu_clock                      u:object_r:sysfs_device_info:s0
 /sys/kernel/gpu/gpu_busy                       u:object_r:sysfs_device_info:s0
 
+# DPMD
 /(product|system/product)/bin/dpmd             u:object_r:dpmd_product_exec:s0
+
+# Vulkan
+/(vendor|system/vendor)/lib/hw/vulkan\.adreno.so      u:object_r:vulkan_hal:s0
+/(vendor|system/vendor)/lib64/hw/vulkan\.adreno.so    u:object_r:vulkan_hal:s0
