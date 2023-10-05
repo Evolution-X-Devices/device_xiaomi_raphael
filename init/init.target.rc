@@ -90,6 +90,11 @@ on late-init
     chown system system /sys/devices/virtual/thermal/tz-by-name/usbc-therm-monitor/trip_point_0_hyst
     chown system system /sys/devices/virtual/thermal/tz-by-name/soc/mode
 
+    chmod 0664 /sys/class/thermal/thermal_message/sconfig
+    chown system system /sys/class/thermal/thermal_message/sconfig
+    chmod 0666 /sys/class/thermal/thermal_message/temp_state
+    chown system system /sys/class/thermal/thermal_message/temp_state
+
 on early-fs
     start vold
 
@@ -135,6 +140,9 @@ on post-fs-data
     mkdir /data/vendor/nnhal 0700 system system
     mkdir /data/vendor/nfc 0770 nfc nfc
 
+    mkdir /data/vendor/thermal 0771 root system
+    mkdir /data/vendor/thermal/config 0771 root system
+
 on early-boot
     start vendor.sensors
 
@@ -148,6 +156,8 @@ on boot
     chown system system /sys/kernel/qvr_external_sensor/fd
     start rmt_storage
     start rfs_access
+
+    chown system system /sys/class/thermal/thermal_message/sconfig
 
     # USB controller configuration
     setprop vendor.usb.rndis.func.name "gsi"
@@ -263,14 +273,14 @@ service vendor.sec_nvm /vendor/bin/sec_nvm
     user system
     group system
 
-service vendor.thermal-engine /vendor/bin/thermal-engine -c /vendor/etc/thermal-engine-msmnile-normal_mode.conf
+service vendor.thermal-engine /vendor/bin/thermal-engine
     class main
     user root
-    group root
     socket thermal-send-client stream 0666 system system
     socket thermal-recv-client stream 0660 system system
     socket thermal-recv-passive-client stream 0666 system system
     socket thermal-send-rule stream 0660 system system
+    group root
 
 service vendor.lowi /vendor/bin/sscrpcd
     class core

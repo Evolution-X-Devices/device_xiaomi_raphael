@@ -271,6 +271,9 @@ persist.sys.binary_xml=false
 ro.soc.manufacturer=QTI
 ro.soc.model=SM8150
 
+# Thermal
+vendor.sys.thermal.data.path=/data/vendor/thermal/
+
 # USB
 vendor.usb.diag.func.name=diag
 vendor.usb.use_ffs_mtp=0
