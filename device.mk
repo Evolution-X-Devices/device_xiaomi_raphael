@@ -39,6 +39,7 @@ PRODUCT_ENFORCE_RRO_TARGETS := *
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
+    vendor/qcom/opensource/usb/etc \
     hardware/google/interfaces \
     hardware/google/pixel \
     hardware/xiaomi
@@ -623,7 +624,7 @@ PRODUCT_PACKAGES += \
 # USB
 PRODUCT_PACKAGES += \
     usb_compositions.conf \
-    android.hardware.usb@1.0-service \
+    android.hardware.usb@1.3-service.dual_role_usb \
     android.hardware.usb.gadget@1.2-service-qti
 
 # Vendor service manager
