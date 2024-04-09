@@ -1,21 +1,25 @@
 [
-   {
-      "repository": "onettboots/bool-x_xiaomi_raphael",
-      "target_path": "kernel/xiaomi/raphael",
-      "remote": "github",
-      "branch": "dev/DSPcassOcd"
-   },
-   {
-      "repository": "vendor_xiaomi_raphael",
-      "target_path": "vendor/xiaomi/raphael"
-   },
-   {
-      "repository": "evo-x/vendor_xiaomi_miuicamera",
-      "target_path": "vendor/xiaomi/miuicamera",
-      "remote": "bb"
-   },
-   {
-     "repository": "packages_apps_ViPER4AndroidFX",
-     "target_path": "packages/apps/ViPER4AndroidFX"
-   }
+  {
+    "repository": "vendor_xiaomi_raphael",
+    "target_path": "vendor/xiaomi/raphael"
+  },
+  {
+    "repository": "hardware_xiaomi",
+    "target_path": "hardware/xiaomi"
+  },
+  {
+    "repository": "packages_apps_ViPER4AndroidFX",
+    "target_path": "packages/apps/ViPER4AndroidFX"
+  },
+  {
+    "repository": "vendor_xiaomi_miuicamera",
+    "target_path": "vendor/xiaomi/miuicamera",
+    "remote": "evo-main"
+  },
+  {
+    "repository": "SOVIET-ANDROID/kernel_xiaomi_raphael",
+    "target_path": "kernel/xiaomi/raphael",
+    "remote": "github-non-los",
+    "branch": "14.0-matrix"
+  }
 ]
