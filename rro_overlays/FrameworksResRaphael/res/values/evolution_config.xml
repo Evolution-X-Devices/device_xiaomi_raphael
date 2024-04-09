@@ -22,10 +22,10 @@
     <bool name="config_multiColorBatteryLed">false</bool>
 
     <!-- Pocket Lock -->
-    <bool name="config_pocketModeSupported">true</bool>
+    <bool name="config_pocketUseLightSensor">false</bool>
 
-    <!-- Shows the required view for Screen OFF FOD -->
-    <bool name="config_supportsScreenOffUdfps">true</bool>
+    <!-- Whether devices supports in-display fingerprint when screen is off -->
+    <bool name="config_supportScreenOffUdfps">true</bool>
 
     <!-- The list of package IDs that are allowed to use aux cameras.
          NOTE: If this list is empty then all apps will be able to use aux cameras. -->
@@ -50,7 +50,4 @@
     <!-- Defines the sysfs attribute path used by the device
          to enable/disable DC dimming. -->
     <string name="config_deviceDcDimmingSysfsNode">/sys/devices/platform/soc/soc:qcom,dsi-display-primary/dc_dim</string>
-
-    <!-- Whether to enable Lineage Health Service -->
-    <bool name="config_lineageHealthSupported">true</bool>
 </resources>
