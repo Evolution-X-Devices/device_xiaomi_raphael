@@ -8,3 +8,5 @@ allow vendor_qti_init_shell sysfs_wakeup:file { setattr };
 allow vendor_qti_init_shell vendor_qti_init_shell:capability { kill };
 
 get_prop(vendor_qti_init_shell, radio_control_prop)
+
+allow vendor_qti_init_shell proc_page_cluster:file rw_file_perms;
