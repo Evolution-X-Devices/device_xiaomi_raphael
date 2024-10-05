@@ -23,7 +23,6 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 # Overlays
 PRODUCT_PACKAGES += \
     CarrierConfigOverlay \
-    DeviceAsWebcamRaphael \
     FaceUnlockServiceOverlay \
     FrameworksResRaphael \
     SettingsProviderOverlayGlobal \
@@ -40,7 +39,6 @@ PRODUCT_ENFORCE_RRO_TARGETS := *
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
     bootable/deprecated-ota \
-    vendor/qcom/opensource/usb/etc \
     hardware/google/interfaces \
     hardware/google/pixel \
     hardware/xiaomi
@@ -620,9 +618,7 @@ AB_OTA_UPDATER := false
 
 # USB
 PRODUCT_PACKAGES += \
-    usb_compositions.conf \
-    android.hardware.usb@1.3-service.dual_role_usb \
-    android.hardware.usb.gadget@1.2-service-qti
+    android.hardware.usb@1.0-service
 
 # Vendor service manager
 PRODUCT_PACKAGES += \
