@@ -40,6 +40,10 @@ mmp.enable.3g2=true
 persist.mm.enable.prefetch=true
 mm.enable.smoothstreaming=true
 
+# LMKD
+ro.lmk.lowmem_min_oom_score=801
+ro.lmk.swap_compression_ratio=2
+
 # RIL
 persist.radio.apm_sim_not_pwdn=1
 persist.vendor.radio.enable_temp_dds=true
