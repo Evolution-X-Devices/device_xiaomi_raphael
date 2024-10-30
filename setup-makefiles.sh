@@ -29,19 +29,13 @@ source "${HELPER}"
 function vendor_imports() {
     cat <<EOF >>"$1"
 	"device/xiaomi/raphael",
-        "hardware/google/interfaces",
-        "hardware/google/pixel",
-        "hardware/xiaomi",
-        "vendor/qcom/common/system/av",
-        "vendor/google/pixel",
-        "hardware/qcom-caf/sm8150",
-	"hardware/qcom-caf/sm8250",
-        "vendor/qcom/opensource/commonsys/display",
-        "vendor/qcom/opensource/commonsys-intf/display",
-        "vendor/qcom/opensource/display",
-        "vendor/qcom/opensource/data-ipa-cfg-mgr-legacy-um",
-        "vendor/qcom/opensource/dataservices",
-        "hardware/qcom-caf/wlan",
+	"hardware/qcom-caf/sm8150",
+	"hardware/qcom-caf/wlan",
+	"hardware/xiaomi",
+	"vendor/qcom/opensource/dataservices",
+	"vendor/qcom/opensource/commonsys-intf/display",
+	"vendor/qcom/opensource/commonsys/display",
+	"vendor/qcom/opensource/display",
 EOF
 }
 
