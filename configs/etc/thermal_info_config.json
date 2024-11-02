@@ -234,22 +234,6 @@
     ],
     "CoolingDevices":[
         {
-            "Name":"thermal-cpufreq-0",
-            "Type":"CPU"
-        },
-        {
-            "Name":"thermal-cpufreq-4",
-            "Type":"CPU"
-        },
-        {
-            "Name":"thermal-cpufreq-7",
-            "Type":"CPU"
-        },
-        {
-            "Name":"thermal-devfreq-0",
-            "Type":"GPU"
-        },
-        {
             "Name":"npu",
             "Type":"NPU"
         },
