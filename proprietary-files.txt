@@ -1162,9 +1162,8 @@ vendor/bin/ssr_setup
 # Thermal - from coral-user-12-SQ1A.220105.002-7961164-release-keys
 vendor/bin/thermal-engine|01cb7dc998c39016b54089c18921ad7d65b3c675
 
-# ThermalClient
-vendor/lib/libthermalclient.so
-vendor/lib64/libthermalclient.so
+# Thermal - from barbet 12 S2B2.211203.006-8015633
+vendor/lib64/libthermalclient.so|0a12301d1557583db10f730d1d3cced841448b99
 
 # Time - from LA.UM.9.1.r1-13700-SMxxx0.QSSI13.0
 vendor/app/TimeService/TimeService.apk;NODEXPO|92317b3b72586489456d37057b4c3c8e55863923
