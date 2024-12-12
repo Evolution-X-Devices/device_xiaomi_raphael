@@ -464,6 +464,7 @@ PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # Parts
 PRODUCT_PACKAGES += \
+    DSPVolumeSynchronizer \
     XiaomiParts
 
 # Powerstats
