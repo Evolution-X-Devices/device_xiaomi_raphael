@@ -199,6 +199,10 @@ vendor.power.pasr.enabled=true
 # Perf
 ro.vendor.extension_library=libqti-perfd-client.so
 
+# Fingerprint
+persist.vendor.fingerprint.type=udfps_optical
+persist.vendor.fingerprint.sensor_location=540|2026|95
+
 # Printk
 persist.vendor.console.silent.config=1
 
