@@ -163,9 +163,6 @@ drm.service.enabled=true
 # Fastbootd
 ro.fastbootd.available=true
 
-# Factory Reset Protection
-ro.frp.pst=/dev/block/bootdevice/by-name/frp
-
 # FM
 vendor.hw.fm.init=0
 vendor.audio.feature.fm.enable=true
