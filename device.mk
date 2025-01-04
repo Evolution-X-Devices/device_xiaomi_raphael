@@ -48,6 +48,10 @@ PRODUCT_PACKAGES += \
     SettingsOverlayDevice \
     SystemUIOverlayDevice
 
+# Power
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/etc/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
+
 # Sensors
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
