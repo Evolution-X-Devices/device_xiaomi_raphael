@@ -183,6 +183,7 @@ PRODUCT_PACKAGES += \
 # Display
 PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.4-service \
+    gralloc.qcom \
     hwcomposer.qcom
 
 PRODUCT_PACKAGES += \
