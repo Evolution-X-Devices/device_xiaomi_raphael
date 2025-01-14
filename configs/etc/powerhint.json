@@ -129,34 +129,33 @@
       "Name": "MLUclampBoost",
       "Path": "/dev/cpuctl/nnapi-hal/cpu.uclamp.min",
       "Values": [
-          "0.00",
-          "81.20"
+        "0.00",
+        "81.20"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
     },
     {
       "Name": "GPUMaxFreq",
-      "Path": "/sys/class/kgsl/kgsl-3d0/devfreq/max_freq",
+      "Path": "/sys/class/kgsl/kgsl-3d0/max_pwrlevel",
       "Values": [
-        "770000000",
-        "715000000",
-        "615000000"
+        "0",
+        "1",
+        "2"
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
     },
     {
       "Name": "GPUMinFreq",
-      "Path": "/sys/class/kgsl/kgsl-3d0/devfreq/min_freq",
+      "Path": "/sys/class/kgsl/kgsl-3d0/min_pwrlevel",
       "Values": [
-        "770000000",
-        "715000000",
-        "615000000",
-        "515000000",
-        "345000000",
-        "270000000",
-        "150000000"
+        "0",
+        "1",
+        "3",
+        "4",
+        "5",
+        "6"
       ],
       "ResetOnInit": true
     },
@@ -391,7 +390,7 @@
       "PowerHint": "SUSTAINED_PERFORMANCE",
       "Node": "GPUMaxFreq",
       "Duration": 0,
-      "Value": "615000000"
+      "Value": "2"
     },
     {
       "PowerHint": "INTERACTION",
@@ -594,13 +593,13 @@
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "GPUMinFreq",
       "Duration": 0,
-      "Value": "345000000"
+      "Value": "1"
     },
     {
       "PowerHint": "EXPENSIVE_RENDERING",
       "Node": "GPUMaxFreq",
       "Duration": 0,
-      "Value": "615000000"
+      "Value": "0"
     },
     {
       "PowerHint": "DISPLAY_INACTIVE",
