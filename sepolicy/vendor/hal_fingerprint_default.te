@@ -13,6 +13,7 @@ allow hal_fingerprint_default {
 }:chr_file rw_file_perms;
 
 set_prop(hal_fingerprint_default, vendor_fp_prop)
+set_prop(hal_fingerprint_default, vendor_system_prop)
 
 # Allow fp HAL to sent hint
 hal_client_domain(hal_fingerprint_default, hal_power)
