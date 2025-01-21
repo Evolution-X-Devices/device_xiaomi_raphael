@@ -1,4 +1,5 @@
 dontaudit untrusted_app ashmem_device:chr_file open;
+dontaudit vendor_thermal-engine self:capability dac_override;
 
 dontaudit {
   hal_audio_default
