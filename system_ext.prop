@@ -39,3 +39,6 @@ vendor.thermal.config=thermal_info_config.json
 
 # Time
 persist.timed.enable=true
+
+# Printk
+persist.vendor.console.silent.config=1
