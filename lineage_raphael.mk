@@ -16,7 +16,6 @@ $(call inherit-product, device/xiaomi/raphael/device.mk)
 $(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 EVO_BUILD_TYPE := Official
-TARGET_DISABLE_EPPE := true
 TARGET_BOOT_ANIMATION_RES := 1080
 TARGET_BUILD_APERTURE_CAMERA := false
 TARGET_HAS_UDFPS := true
