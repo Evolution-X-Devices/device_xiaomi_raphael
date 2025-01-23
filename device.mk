@@ -45,6 +45,7 @@ PRODUCT_SOONG_NAMESPACES += \
     bootable/deprecated-ota \
     hardware/google/interfaces \
     hardware/google/pixel \
+    hardware/qcom-caf/common/libqti-perfd-client \
     hardware/xiaomi
 
 # IncrementalFS
