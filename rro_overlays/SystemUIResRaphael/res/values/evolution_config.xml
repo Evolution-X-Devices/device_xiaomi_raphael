@@ -18,23 +18,8 @@
     <!-- Color of the UDFPS pressed view -->
     <color name="config_udfpsColor">#00ffffff</color>
 
-    <!-- Preferred max refresh rate at AOD & Ambient Display, if supported by the display. -->
-    <integer name="config_aodMaxRefreshRate">60</integer>
-
-    <!-- Preferred refresh rate at keyguard, if supported by the display -->
-    <integer name="config_keyguardRefreshRate">60</integer>
-
-    <!-- Preferred max refresh rate at keyguard, if supported by the display. -->
-    <integer name="config_keyguardMaxRefreshRate">60</integer>
-
-    <!-- Whether to find optimal display refresh rate when using udfps -->
-    <bool name="config_udfpsOptimalRefreshRate">false</bool>
-
     <!-- Update battery info every second when device is charging -->
     <bool name="config_alternateFastchargeInfoUpdate">true</bool>
-
-    <!-- Whether show refresh rate QS tile -->
-    <bool name="config_showRefreshRateQsTile">true</bool>
 
     <!-- FPSInfoService FPS node file path -->
     <string name="config_fpsInfoSysNode" translatable="false">/sys/class/drm/sde-crtc-0/measured_fps</string>
@@ -44,4 +29,7 @@
 
     <!-- Show 5G toggle in internet dialog when available -->
     <bool name="config_supportsVONR">false</bool>
+
+    <!-- The CPU temperature divider, if needed -->
+    <integer name="config_cpuTempDivider" translatable="false">1000</integer>
 </resources>
