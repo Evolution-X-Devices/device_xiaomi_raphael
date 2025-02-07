@@ -22,6 +22,7 @@ EVO_BUILD_TYPE := Official
 TARGET_BOOT_ANIMATION_RES := 1080
 TARGET_BUILD_APERTURE_CAMERA := false
 TARGET_HAS_UDFPS := true
+TARGET_INCLUDE_VIPERFX := true
 
 # Bypass charging node /sys/class/power_supply/battery/input_suspend
 BYPASS_CHARGE_SUPPORTED := true
