@@ -1,3 +1,1 @@
 power.stats-vendor    u:object_r:hal_power_stats_vendor_service:s0
-
-vendor.nxp.nxpnfc_aidl.INxpNfc/default                                        u:object_r:hal_nfc_service:s0
