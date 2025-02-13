@@ -616,6 +616,9 @@ PRODUCT_PACKAGES += \
 # Update
 AB_OTA_UPDATER := false
 
+# UFFD GC
+OVERRIDE_ENABLE_UFFD_GC := false
+
 # USB
 PRODUCT_PACKAGES += \
     android.hardware.usb@1.0-service
