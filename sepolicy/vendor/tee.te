@@ -9,3 +9,5 @@ allow tee {
 }:file create_file_perms;
 
 allow tee tmpfs:dir { open read };
+
+allow tee tmpfs:dir r_dir_perms;
