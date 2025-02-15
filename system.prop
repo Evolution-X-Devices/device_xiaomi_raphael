@@ -3,9 +3,6 @@ persist.sys.cam.skip_detach_image=true
 persist.vendor.camera.privapp.list=com.android.camera
 log.tag.CHIUSECASE=ERROR
 
-# Blur
-persist.sys.sf.disable_blurs=1
-
 # Display
 debug.force_no_blanking=true
 debug.sf.enable_hwc_vds=0
