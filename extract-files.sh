@@ -68,6 +68,20 @@ function blob_fixup() {
             [ "$2" = "" ] && return 0
             grep -q "gettid: 1" "${2}" || echo "gettid: 1" >> "${2}"
             ;;
+            system_ext/lib/libwfdmmsrc_system.so)
+            [ "$2" = "" ] && return 0
+            grep -q "libgui_shim.so" "${2}" || "${PATCHELF}" --add-needed "libgui_shim.so" "${2}"
+            ;;
+            system_ext/lib/libwfdservice.so)
+            [ "$2" = "" ] && return 0
+            "${PATCHELF}" --replace-needed "android.media.audio.common.types-V1-cpp.so" "android.media.audio.common.types-V4-cpp.so" "${2}"
+            ;;
+            system_ext/lib64/libwfdnative.so)
+            [ "$2" = "" ] && return 0
+            "${PATCHELF}" --replace-needed "android.hidl.base@1.0.so" "libhidlbase.so" "${2}"
+            grep -q "libbinder_shim.so" "${2}" || "${PATCHELF}" --add-needed "libbinder_shim.so" "${2}"
+            grep -q "libinput_shim.so" "${2}" || "${PATCHELF}" --add-needed "libinput_shim.so" "${2}"
+            ;;
             vendor/etc/libnfc-nci.conf)
             [ "$2" = "" ] && return 0
             sed -i "s/NFC_DEBUG_ENABLED=1/NFC_DEBUG_ENABLED=0/" "${2}"
