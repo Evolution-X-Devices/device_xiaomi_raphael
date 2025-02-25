@@ -313,6 +313,23 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/etc/msm_irqbalance.conf:$(TARGET_COPY_OUT_VENDOR)/etc/msm_irqbalance.conf
 
+# Init
+PRODUCT_PACKAGES += \
+    fstab.qcom_ramdisk \
+    fstab.qcom \
+    fstab.zram
+
+PRODUCT_PACKAGES += \
+    init.power.rc \
+    init.qcom.rc \
+    init.qcom.sh \
+    init.qcom.usb.rc \
+    init.qcom.usb.sh \
+    init.recovery.qcom.rc \
+    init.target.rc \
+    init.xiaomi.rc \
+    ueventd.qcom.rc
+
 # Keylayout
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/gpio-keys.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/gpio-keys.kl \
@@ -523,23 +540,6 @@ PRODUCT_PACKAGES += \
     android.hardware.radio@1.5.vendor \
     android.hardware.radio.config@1.2.vendor \
     android.hardware.radio.deprecated@1.0.vendor
-
-# Rootdir
-PRODUCT_PACKAGES += \
-    fstab.qcom_ramdisk \
-    fstab.qcom \
-    fstab.zram
-
-PRODUCT_PACKAGES += \
-    init.power.rc \
-    init.qcom.rc \
-    init.qcom.sh \
-    init.qcom.usb.rc \
-    init.qcom.usb.sh \
-    init.recovery.qcom.rc \
-    init.target.rc \
-    init.xiaomi.rc \
-    ueventd.qcom.rc
 
 # Seccomp
 PRODUCT_COPY_FILES += \
