@@ -181,6 +181,10 @@ ro.hardware.fp.udfps=true
 # Keystore
 ro.hardware.keystore_desede=true
 
+# Logging
+persist.log.tag.QC2Buf=W
+persist.log.tag.QC2V4l2Codec=E
+
 # Media
 debug.stagefright.c2inputsurface=-1
 
