@@ -68,12 +68,13 @@ on init
     write /sys/devices/system/cpu/cpu7/cpufreq/schedutil/down_rate_limit_us 20000
 
     # Boot time uclamp tuning
-    write /dev/cpuctl/top-app/cpu.uclamp.min 15.90
-    write /dev/cpuctl/foreground/cpu.uclamp.min 15.90
-    write /dev/cpuctl/system/cpu.uclamp.min 15.90
-    write /dev/cpuctl/nnapi-hal/cpu.uclamp_min 51.20
+    write /dev/cpuctl/top-app/cpu.uclamp.min 15
+    write /dev/cpuctl/foreground/cpu.uclamp.min 15
+    write /dev/cpuctl/system/cpu.uclamp.min 15
+    write /dev/cpuctl/nnapi-hal/cpu.uclamp_min 50
 
     # RT uclamp setting
+    setprop kernel.sched_util_clamp_min_rt_default 0
     write /proc/sys/kernel/sched_util_clamp_min_rt_default 0
 
     # Migrate cpuctl tasks once to cpuctl system
@@ -170,15 +171,16 @@ on property:sys.boot_completed=1
     stop statsd
 
     # Setup final cpu.uclamp.min
-    write /dev/cpuctl/top-app/cpu.uclamp.min 0.00
-    write /dev/cpuctl/foreground/cpu.uclamp.min 0.00
-    write /dev/cpuctl/system/cpu.uclamp.min 0.00
+    write /dev/cpuctl/top-app/cpu.uclamp.min 0
+    write /dev/cpuctl/foreground/cpu.uclamp.min 10
+    write /dev/cpuctl/system/cpu.uclamp.min 0
 
     # Set uclamp.max for some groups, which could indicate cpu importance used in scheduling
-    write /dev/cpuctl/background/cpu.uclamp.max 51.20
-    write /dev/cpuctl/system-background/cpu.uclamp.max 51.20
-    write /dev/cpuctl/dex2oat/cpu.uclamp.max 61.50
-    write /dev/cpuctl/camera-daemon/cpu.uclamp.min 51.20
+    write /dev/cpuctl/background/cpu.uclamp.min 20
+    write /dev/cpuctl/system-background/cpu.uclamp.max 40
+    write /dev/cpuctl/dex2oat/cpu.uclamp.max 60
+    write /dev/cpuctl/camera-daemon/cpu.uclamp.min 50
+    write /dev/cpuctl/camera-daemon/cpu.uclamp.latency_sensitive 1
 
     # Migrate tasks again in case kernel threads are created during boot
     copy_per_line /dev/cpuctl/tasks /dev/cpuctl/system/tasks
