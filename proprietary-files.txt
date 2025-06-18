@@ -724,6 +724,9 @@ vendor/firmware/a640_zap.b01
 vendor/firmware/a640_zap.b02
 vendor/firmware/a640_zap.elf
 vendor/firmware/a640_zap.mdt
+vendor/firmware/a650_gmu.bin
+vendor/firmware/a650_sqe.fw
+vendor/firmware/a650_zap.elf
 
 # HotwordEnrollment - from MIUI 12.5.2
 -product/priv-app/HotwordEnrollmentOKGoogleHEXAGON/HotwordEnrollmentOKGoogleHEXAGON.apk;NODEXPO|62e301d2f386771facd9a9aa546c0fcc241116da
