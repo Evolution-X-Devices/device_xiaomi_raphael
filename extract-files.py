@@ -52,7 +52,11 @@ blob_fixups: blob_fixups_user_type = {
     'system_ext/lib64/libwfdnative.so': blob_fixup()
         .add_needed('libbinder_shim.so')
         .add_needed('libinput_shim.so'),
+    'system_ext/lib/libwfdservice.so': blob_fixup()
+        .add_needed('libaudioclient_shim.so')
+        .replace_needed('android.media.audio.common.types-V2-cpp.so', 'android.media.audio.common.types-V4-cpp.so'),
     'system_ext/lib64/libwfdservice.so': blob_fixup()
+        .add_needed('libaudioclient_shim.so')
         .replace_needed('android.media.audio.common.types-V2-cpp.so', 'android.media.audio.common.types-V4-cpp.so'),
     'vendor/etc/init/init.mi_thermald.rc': blob_fixup()
         .regex_replace('.*seclabel u:r:mi_thermald:s0\n', ''),
