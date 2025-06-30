@@ -47,25 +47,50 @@ lib_fixups: lib_fixups_user_type = {
 blob_fixups: blob_fixups_user_type = {
     'vendor/lib64/camera/components/com.qti.node.watermark.so': blob_fixup()
         .add_needed('libpiex_shim.so'),
+    (
+     'vendor/lib64/libalAILDC.so',
+     'vendor/lib64/libalLDC.so',
+     'vendor/lib64/libalhLDC.so'): blob_fixup()
+        .clear_symbol_version('AHardwareBuffer_allocate')
+        .clear_symbol_version('AHardwareBuffer_describe')
+        .clear_symbol_version('AHardwareBuffer_lock')
+        .clear_symbol_version('AHardwareBuffer_release')
+        .clear_symbol_version('AHardwareBuffer_unlock'),
+     (
+      'vendor/lib64/libarcsoft_dualcam_refocus_front.so',
+      'vendor/lib64/libarcsoft_dualcam_refocus_rear_t.so',
+      'vendor/lib64/libarcsoft_dualcam_refocus_rear_w.so'
+      ): blob_fixup()
+        .clear_symbol_version('remote_handle_close')
+        .clear_symbol_version('remote_handle_invoke')
+        .clear_symbol_version('remote_handle_open')
+        .clear_symbol_version('remote_register_buf_attr')
+        .clear_symbol_version('remote_register_buf'),
     'system_ext/lib64/libwfdmmsrc_system.so': blob_fixup()
         .add_needed('libgui_shim.so'),
     'system_ext/lib64/libwfdnative.so': blob_fixup()
         .add_needed('libbinder_shim.so')
         .add_needed('libinput_shim.so'),
-    'system_ext/lib/libwfdservice.so': blob_fixup()
+    (
+        'system_ext/lib/libwfdservice.so',
+        'system_ext/lib64/libwfdservice.so'
+    ): blob_fixup()
         .add_needed('libaudioclient_shim.so')
         .replace_needed('android.media.audio.common.types-V2-cpp.so', 'android.media.audio.common.types-V4-cpp.so'),
-    'system_ext/lib64/libwfdservice.so': blob_fixup()
-        .add_needed('libaudioclient_shim.so')
-        .replace_needed('android.media.audio.common.types-V2-cpp.so', 'android.media.audio.common.types-V4-cpp.so'),
-    'vendor/etc/init/init.mi_thermald.rc': blob_fixup()
-        .regex_replace('.*seclabel u:r:mi_thermald:s0\n', ''),
     'vendor/etc/seccomp_policy/atfwd@2.0.policy': blob_fixup()
         .add_line_if_missing('gettid: 1'),
-    'vendor/lib64/libwvhidl.so': blob_fixup()
+    (
+        'vendor/lib64/libwvhidl.so',
+        'vendor/lib/mediadrm/libwvdrmengine.so',
+        'vendor/lib64/mediadrm/libwvdrmengine.so'
+    ): blob_fixup()
         .add_needed('libcrypto_shim.so'),
-    'vendor/lib64/mediadrm/libwvdrmengine.so': blob_fixup()
-        .add_needed('libcrypto_shim.so'),
+    (
+        'vendor/lib/libaudioroute_ext.so',
+        'vendor/lib/hw/audio.primary.msmnile.so',
+        'vendor/lib64/hw/audio.primary.msmnile.so'
+    ): blob_fixup()
+        .replace_needed('libaudioroute.so', 'libaudioroute-v34.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
@@ -79,3 +104,4 @@ module = ExtractUtilsModule(
 if __name__ == '__main__':
     utils = ExtractUtils.device(module)
     utils.run()
+
