@@ -91,8 +91,6 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/hw/audio.primary.msmnile.so'
     ): blob_fixup()
         .replace_needed('libaudioroute.so', 'libaudioroute-v34.so'),
-    'system_ext/lib64/lib-imsvideocodec.so': blob_fixup()
-        .add_needed('libgui_shim.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(

@@ -529,11 +529,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_SYSTEM_EXT_PROPERTIES  += \
     persist.columbus.model=tap7cls_coral.tflite
 
-# RCS
-PRODUCT_PACKAGES += \
-    PresencePolling \
-    RcsService
-
 # RIL
 PRODUCT_PACKAGES += \
     libprotobuf-cpp-full \
