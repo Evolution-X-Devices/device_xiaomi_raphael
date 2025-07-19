@@ -87,8 +87,6 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libcrypto_shim.so'),
     (
         'vendor/lib/libaudioroute_ext.so',
-        'vendor/lib/hw/audio.primary.msmnile.so',
-        'vendor/lib64/hw/audio.primary.msmnile.so'
     ): blob_fixup()
         .replace_needed('libaudioroute.so', 'libaudioroute-v34.so'),
 }  # fmt: skip
