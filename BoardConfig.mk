@@ -54,9 +54,6 @@ TARGET_FS_CONFIG_GEN := $(DEVICE_PATH)/config.fs
 TARGET_INPUTDISPATCHER_SKIP_EVENT_KEY := 338
 TARGET_USES_FOD_ZPOS := true
 
-# FM
-BOARD_HAVE_QCOM_FM := true
-
 # HIDL
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
     vendor/lineage/config/device_framework_matrix.xml
