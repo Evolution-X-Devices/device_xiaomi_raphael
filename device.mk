@@ -187,6 +187,12 @@ $(call soong_config_set,camera,override_format_from_reserved,true)
 $(call soong_config_set,camera,package_name,com.android.camera)
 $(call soong_config_set,libcameraservice,ext_lib,libcameraservice_extension.raphael)
 
+# MiuiCamera
+$(call inherit-product-if-exists, vendor/xiaomi/miuicamera/config.mk)
+
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/permissions/privapp-permissions-miuicamera.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/permissions/privapp-permissions-miuicamera.xml
+
 # Display
 PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.4-service \
