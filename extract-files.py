@@ -67,6 +67,11 @@ blob_fixups: blob_fixups_user_type = {
         .clear_symbol_version('remote_register_buf_attr')
         .clear_symbol_version('remote_register_buf'),
     (
+    'vendor/etc/wfdconfig.xml'
+    ): blob_fixup()
+        .regex_replace('<AudioStreamInSuspend>0</AudioStreamInSuspend>', '<AudioStreamInSuspend>1</AudioStreamInSuspend>')
+        .regex_replace('<HID>0</HID>', '<HID>1</HID>'),
+    (
         'vendor/lib64/libwvhidl.so',
         'vendor/lib/mediadrm/libwvdrmengine.so',
         'vendor/lib64/mediadrm/libwvdrmengine.so'
