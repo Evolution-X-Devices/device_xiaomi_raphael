@@ -506,7 +506,7 @@ PRODUCT_PACKAGES += \
 # Enable Hint maneger for SurfaceFlinger and HWUI
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     debug.hwui.use_hint_manager=true \
-    debug.hwui.target_cpu_time_percent=10
+    debug.hwui.target_cpu_time_percent=30
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/etc/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
