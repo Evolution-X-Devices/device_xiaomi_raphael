@@ -87,6 +87,9 @@
       "Name": "GPUMaxFreq",
       "Path": "/sys/class/kgsl/kgsl-3d0/devfreq/max_freq",
       "Values": [
+        "770000000",
+        "715000000",
+        "615000000",
         "585000000",
         "427000000"
       ],
@@ -97,10 +100,11 @@
       "Name": "GPUMinFreq",
       "Path": "/sys/class/kgsl/kgsl-3d0/devfreq/min_freq",
       "Values": [
-        "585000000",
+        "515000000",
         "427000000",
         "345000000",
-        "257000000"
+        "270000000",
+        "150000000"
       ],
       "ResetOnInit": true
     },
