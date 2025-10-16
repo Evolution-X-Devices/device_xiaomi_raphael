@@ -9,8 +9,6 @@
 
 #include "vendor_init.h"
 
-#define FINGERPRINT "Xiaomi/raphael/raphael:11/RKQ1.200826.002/V12.5.2.0.RFKMIXM:user/release-keys"
-
 static const variant_info_t raphael_global_info = {
     .hwc_value = "GLOBAL",
     .sku_value = "",
@@ -19,8 +17,6 @@ static const variant_info_t raphael_global_info = {
     .device = "raphael",
     .marketname = "",
     .model = "Mi 9T Pro",
-    .build_fingerprint = FINGERPRINT,
-
     .nfc = true,
 };
 
@@ -32,8 +28,6 @@ static const variant_info_t raphaelin_info = {
     .device = "raphaelin",
     .marketname = "",
     .model = "Redmi K20 Pro",
-    .build_fingerprint = FINGERPRINT,
-
     .nfc = false,
 };
 
@@ -45,8 +39,6 @@ static const variant_info_t raphael_info = {
     .device = "raphael",
     .marketname = "",
     .model = "Redmi K20 Pro",
-    .build_fingerprint = FINGERPRINT,
-
     .nfc = true,
 };
 
