@@ -22,21 +22,21 @@ import android.provider.Settings;
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceFragmentCompat;
-import androidx.preference.SwitchPreference;
+import androidx.preference.SwitchPreferenceCompat;
 
 import org.lineageos.settings.R;
 
 public class PopupCameraSettingsFragment extends PreferenceFragmentCompat implements
         OnPreferenceChangeListener {
 
-    private SwitchPreference mAlwaysCameraSwitch;
+    private SwitchPreferenceCompat mAlwaysCameraSwitch;
     public static final String KEY_ALWAYS_CAMERA_DIALOG = "always_on_camera_dialog";
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
         addPreferencesFromResource(R.xml.popup_settings);
 
-        mAlwaysCameraSwitch = (SwitchPreference) findPreference(KEY_ALWAYS_CAMERA_DIALOG);
+        mAlwaysCameraSwitch = (SwitchPreferenceCompat) findPreference(KEY_ALWAYS_CAMERA_DIALOG);
         boolean enabled = Settings.System.getInt(getContext().getContentResolver(),KEY_ALWAYS_CAMERA_DIALOG, 0) == 1;
         mAlwaysCameraSwitch.setChecked(enabled);
         mAlwaysCameraSwitch.setOnPreferenceChangeListener(this);
