@@ -7,6 +7,11 @@
 # Inherit from sm8150-common
 include device/xiaomi/sm8150-common/BoardConfigCommon.mk
 
+# Include MIUI Camera board settings if present
+ifneq ($(wildcard device/xiaomi/miuicamera/BoardConfig.mk),)
+include device/xiaomi/miuicamera/BoardConfig.mk
+endif
+
 DEVICE_PATH := device/xiaomi/raphael
 
 # Assert

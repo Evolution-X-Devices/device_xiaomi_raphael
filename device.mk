@@ -24,6 +24,8 @@ TARGET_SCREEN_HEIGHT := 2340
 TARGET_SCREEN_WIDTH := 1080
 
 # Camera
+$(call inherit-product-if-exists, device/xiaomi/miuicamera/device.mk)
+
 PRODUCT_PACKAGES += \
     libMegviiFacepp-0.5.2 \
     libmegface \
