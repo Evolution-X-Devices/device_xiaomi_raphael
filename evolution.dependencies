@@ -18,6 +18,6 @@
   {
     "repository": "vendor_xiaomi_miuicamera",
     "target_path": "vendor/xiaomi/miuicamera",
-    "remote": "evo-codeberg"
+    "remote": "evo-gitea"
   }
 ]
