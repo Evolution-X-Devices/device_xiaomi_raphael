@@ -81,6 +81,17 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib/libaudioroute_ext.so',
     ): blob_fixup()
         .replace_needed('libaudioroute.so', 'libaudioroute-v34.so'),
+    (
+        'vendor/lib/android.hardware.camera.provider@2.4-external.so',
+        'vendor/lib64/android.hardware.camera.provider@2.4-external.so',
+        'vendor/lib/camera.device@3.4-external-impl.so',
+        'vendor/lib64/camera.device@3.4-external-impl.so',
+        'vendor/lib/camera.device@3.5-external-impl.so',
+        'vendor/lib64/camera.device@3.5-external-impl.so',
+        'vendor/lib/camera.device@3.6-external-impl.so',
+        'vendor/lib64/camera.device@3.6-external-impl.so',
+    ): blob_fixup()
+        .replace_needed('libtinyxml2.so', 'libtinyxml2-v34.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
