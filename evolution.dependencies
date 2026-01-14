@@ -16,8 +16,8 @@
     "target_path": "packages/apps/ViPER4AndroidFX"
   },
   {
-    "repository": "vendor_xiaomi_miuicamera",
+    "repository": "EvoX/vendor_xiaomi_miuicamera",
     "target_path": "vendor/xiaomi/miuicamera",
-    "remote": "evo-codeberg"
+    "remote": "gitlab"
   }
 ]
