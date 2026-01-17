@@ -61,6 +61,7 @@ vendor/lib/libsurround_3mic_proc.so
 vendor/lib/vendor.qti.hardware.audiohalext@1.0.so
 
 # Camera
+vendor/bin/remosaic_daemon
 vendor/lib64/camera/com.qti.sensor.imx586_raphael.so
 vendor/lib64/camera/com.qti.sensor.ov8856_raphael.so
 vendor/lib64/camera/com.qti.sensor.s5k3l6_raphael.so
@@ -122,9 +123,12 @@ vendor/lib64/libmialgo_fs.so
 vendor/lib64/libmialgo_rfs.so
 vendor/lib64/libmialgo_sd.so
 vendor/lib64/libmialgo_utils.so
+vendor/lib64/libmialgoengine.so
 vendor/lib64/libmibokeh_855.so
 vendor/lib64/libmpbase.so
 vendor/lib64/libremosaic_daemon.so
+vendor/lib64/libswregistrationalgo.so
+vendor/lib64/libsymphony-cpu.so
 vendor/lib64/libtriplecam_video_optical_zoom.so
 vendor/lib64/libvidhance.so
 
