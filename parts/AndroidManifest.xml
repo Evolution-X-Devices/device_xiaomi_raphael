@@ -31,7 +31,7 @@
         android:persistent="true"
         android:defaultToDeviceProtectedStorage="true"
         android:directBootAware="true"
-        android:theme="@style/Theme.SubSettingsBase">
+        android:theme="@style/Theme.SubSettingsBase.Expressive">
 
         <receiver android:name=".BootCompletedReceiver"
                   android:exported="false">
