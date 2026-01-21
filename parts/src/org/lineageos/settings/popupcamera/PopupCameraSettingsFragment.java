@@ -21,12 +21,13 @@ import android.provider.Settings;
 
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
-import androidx.preference.PreferenceFragmentCompat;
 import androidx.preference.SwitchPreferenceCompat;
+
+import com.android.settingslib.widget.SettingsBasePreferenceFragment;
 
 import org.lineageos.settings.R;
 
-public class PopupCameraSettingsFragment extends PreferenceFragmentCompat implements
+public class PopupCameraSettingsFragment extends SettingsBasePreferenceFragment implements
         OnPreferenceChangeListener {
 
     private SwitchPreferenceCompat mAlwaysCameraSwitch;
