@@ -10,80 +10,28 @@ from extract_utils.fixups_blob import (
 )
 from extract_utils.fixups_lib import (
     lib_fixups,
-    lib_fixups_user_type,
 )
 from extract_utils.main import (
     ExtractUtils,
     ExtractUtilsModule,
 )
 
-namespace_imports = [
-	"device/xiaomi/raphael",
-	"hardware/qcom-caf/sm8150",
-	"hardware/qcom-caf/wlan",
-	"hardware/xiaomi",
-	"vendor/qcom/opensource/dataservices",
-	"vendor/qcom/opensource/commonsys-intf/display",
-	"vendor/qcom/opensource/commonsys/display",
-	"vendor/qcom/opensource/display",
-]
-
-
-def lib_fixup_vendor_suffix(lib: str, partition: str, *args, **kwargs):
-    return f'{lib}_{partition}' if partition == 'vendor' else None
-
-
-lib_fixups: lib_fixups_user_type = {
-    **lib_fixups,
-    (
-        'com.qualcomm.qti.dpm.api@1.0',
-        'vendor.qti.hardware.fm@1.0',
-        'libmmosal',
-        'vendor.qti.hardware.wifidisplaysession@1.0',
-        'vendor.qti.imsrtpservice@3.0',
-    ): lib_fixup_vendor_suffix,
-}
-
 blob_fixups: blob_fixups_user_type = {
-    ('vendor/lib/hw/audio.primary.raphael.so', 'vendor/lib/libaudioroute_ext.so'): blob_fixup()
+    'vendor/etc/init/init.batterysecret.rc': blob_fixup()
+        .regex_replace('.*seclabel u:r:batterysecret:s0\n', ''),
+    ('vendor/lib/hw/audio.primary.msmnile.so', 'vendor/lib/libaudioroute_ext.so'): blob_fixup()
         .replace_needed('libaudioroute.so', 'libaudioroute-v34.so'),
     'vendor/lib64/camera/components/com.qti.node.watermark.so': blob_fixup()
         .add_needed('libpiex_shim.so'),
-    (
-     'vendor/lib64/libalAILDC.so',
-     'vendor/lib64/libalLDC.so',
-     'vendor/lib64/libalhLDC.so'): blob_fixup()
-        .clear_symbol_version('AHardwareBuffer_allocate')
-        .clear_symbol_version('AHardwareBuffer_describe')
-        .clear_symbol_version('AHardwareBuffer_lock')
-        .clear_symbol_version('AHardwareBuffer_release')
-        .clear_symbol_version('AHardwareBuffer_unlock'),
-     (
-      'vendor/lib64/libarcsoft_dualcam_refocus_front.so',
-      'vendor/lib64/libarcsoft_dualcam_refocus_rear_t.so',
-      'vendor/lib64/libarcsoft_dualcam_refocus_rear_w.so'
-      ): blob_fixup()
-        .clear_symbol_version('remote_handle_close')
-        .clear_symbol_version('remote_handle_invoke')
-        .clear_symbol_version('remote_handle_open')
-        .clear_symbol_version('remote_register_buf_attr')
-        .clear_symbol_version('remote_register_buf'),
-    (
-    'vendor/etc/wfdconfig.xml'
-    ): blob_fixup()
-        .regex_replace('<AudioStreamInSuspend>0</AudioStreamInSuspend>', '<AudioStreamInSuspend>1</AudioStreamInSuspend>')
-        .regex_replace('<HID>0</HID>', '<HID>1</HID>'),
-    (
-        'vendor/lib64/libwvhidl.so',
-        'vendor/lib/mediadrm/libwvdrmengine.so',
-        'vendor/lib64/mediadrm/libwvdrmengine.so'
-    ): blob_fixup()
-        .add_needed('libcrypto_shim.so'),
-    (
-        'vendor/lib/libaudioroute_ext.so',
-    ): blob_fixup()
-        .replace_needed('libaudioroute.so', 'libaudioroute-v34.so'),
 }  # fmt: skip
+
+namespace_imports = [
+    'hardware/qcom-caf/common/libqti-perfd-client',
+    'hardware/qcom-caf/sm8150',
+    'hardware/xiaomi',
+    'vendor/qcom/opensource/display',
+    'vendor/xiaomi/sm8150-common',
+]
 
 module = ExtractUtilsModule(
     'raphael',
@@ -94,6 +42,7 @@ module = ExtractUtilsModule(
 )
 
 if __name__ == '__main__':
-    utils = ExtractUtils.device(module)
+    utils = ExtractUtils.device_with_common(
+        module, 'sm8150-common', module.vendor
+    )
     utils.run()
-
