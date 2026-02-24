@@ -709,6 +709,17 @@
       "Node": "FWUClampBoost",
       "Duration": 200,
       "Value": "30"
+    },
+    {
+      "PowerHint": "GAME_LOADING",
+      "Type": "DoHint",
+      "Value": "LAUNCH"
+    },
+    {
+      "PowerHint": "GAME_LOADING",
+      "Node": "GPUMinFreq",
+      "Duration": 3000,
+      "Value": "1"
     }
   ]
 }
