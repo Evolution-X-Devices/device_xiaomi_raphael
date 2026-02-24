@@ -498,6 +498,7 @@ PRODUCT_PACKAGES += \
 
 # Enable Hint maneger for SurfaceFlinger and HWUI
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
+    debug.sf.enable_adpf_cpu_hint=true \
     debug.hwui.use_hint_manager=true \
     debug.hwui.target_cpu_time_percent=30
 

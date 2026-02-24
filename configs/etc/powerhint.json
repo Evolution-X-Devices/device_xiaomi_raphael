@@ -1,8 +1,49 @@
 {
+  "AdpfConfig": [
+    {
+      "Name": "ADPF_60HZ",
+      "PidOn": true,
+      "PidPo": 0.0,
+      "PidPu": 0.0,
+      "PidI": 200.0,
+      "PidIInit": 200,
+      "PidIHigh": 200,
+      "PidILow": -200,
+      "PidDo": 500.0,
+      "PidDu": 0.0,
+      "UclampmMin": true,
+      "UclampmMinInit": 0,
+      "UclampmMinHigh": 400,
+      "UclampmMinLow": 0,
+      "SamplingWindowP": 1,
+      "SamplingWindowI": 0,
+      "SamplingWindowD": 1,
+      "ReportingRateLimitNs": 16666667,
+      "TargetTimeFactor": 1.0,
+      "StaleTimeFactor": 40.0,
+      "GpuBoostOn": false,
+      "GpuBoostCapacityMax": 0,
+      "GpuCapacityLoadUpHeadroom": 0,
+      "HeuristicBoostOn": true,
+      "HBoostModerateJankThreshold": 6,
+      "HBoostOffMaxAvgDurRatio": 0.9,
+      "HBoostSevereJankPidPu": 0.0,
+      "HBoostSevereJankThreshold": 9,
+      "JankCheckTimeFactor": 2.0,
+      "LowFrameRateThreshold": 30,
+      "MaxRecordsNum": 40,
+      "UclampmMinLoadUp": 120,
+      "UclampmMinLoadReset": 0,
+      "UclampmMaxEfficientBase": 614,
+      "UclampmMaxEfficientOffset": 0
+    }
+  ],
   "Nodes": [
     {
       "Name": "CPULittleClusterMaxFreq",
-      "Paths": ["/sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq"],
+      "Paths": [
+        "/sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq"
+      ],
       "Values": [
         "1785600",
         "1113600",
@@ -18,7 +59,9 @@
     },
     {
       "Name": "CPULittleClusterMinFreq",
-      "Paths": ["/sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq"],
+      "Paths": [
+        "/sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq"
+      ],
       "Values": [
         "1785600",
         "576000",
@@ -29,7 +72,9 @@
     },
     {
       "Name": "CPUBigClusterMaxFreq",
-      "Paths": ["/sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq"],
+      "Paths": [
+        "/sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq"
+      ],
       "Values": [
         "2419200",
         "2016000",
@@ -45,7 +90,9 @@
     },
     {
       "Name": "CPUBigClusterMinFreq",
-      "Paths": ["/sys/devices/system/cpu/cpufreq/policy4/scaling_min_freq"],
+      "Paths": [
+        "/sys/devices/system/cpu/cpufreq/policy4/scaling_min_freq"
+      ],
       "Values": [
         "2419200",
         "1497600",
@@ -58,7 +105,9 @@
     },
     {
       "Name": "CPUBigPlusClusterMaxFreq",
-      "Paths": ["/sys/devices/system/cpu/cpufreq/policy7/scaling_max_freq"],
+      "Paths": [
+        "/sys/devices/system/cpu/cpufreq/policy7/scaling_max_freq"
+      ],
       "Values": [
         "2841600",
         "2016000",
@@ -74,7 +123,9 @@
     },
     {
       "Name": "CPUBigPlusClusterMinFreq",
-      "Paths": ["/sys/devices/system/cpu/cpufreq/policy7/scaling_min_freq"],
+      "Paths": [
+        "/sys/devices/system/cpu/cpufreq/policy7/scaling_min_freq"
+      ],
       "Values": [
         "2841600",
         "1497600",
@@ -87,7 +138,9 @@
     },
     {
       "Name": "Dex2oatUClampMaxBoost",
-      "Paths": ["/dev/cpuctl/dex2oat/cpu.uclamp.max"],
+      "Paths": [
+        "/dev/cpuctl/dex2oat/cpu.uclamp.max"
+      ],
       "Values": [
         "40",
         "60"
@@ -97,7 +150,9 @@
     },
     {
       "Name": "TAUClampBoost",
-      "Paths": ["/dev/cpuctl/top-app/cpu.uclamp.min"],
+      "Paths": [
+        "/dev/cpuctl/top-app/cpu.uclamp.min"
+      ],
       "Values": [
         "0",
         "30"
@@ -107,7 +162,9 @@
     },
     {
       "Name": "TAUClampLatency",
-      "Paths": ["/dev/cpuctl/top-app/cpu.uclamp.latency_sensitive"],
+      "Paths": [
+        "/dev/cpuctl/top-app/cpu.uclamp.latency_sensitive"
+      ],
       "Values": [
         "1",
         "0"
@@ -117,7 +174,9 @@
     },
     {
       "Name": "FGUClampBoost",
-      "Paths": ["/dev/cpuctl/foreground/cpu.uclamp.min"],
+      "Paths": [
+        "/dev/cpuctl/foreground/cpu.uclamp.min"
+      ],
       "Values": [
         "0",
         "20"
@@ -126,8 +185,22 @@
       "ResetOnInit": true
     },
     {
+      "Name": "FWUClampBoost",
+      "Paths": [
+        "/dev/cpuctl/foreground_window/cpu.uclamp.min"
+      ],
+      "Values": [
+        "0",
+        "30"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true
+    },
+    {
       "Name": "MLUclampBoost",
-      "Paths": ["/dev/cpuctl/nnapi-hal/cpu.uclamp.min"],
+      "Paths": [
+        "/dev/cpuctl/nnapi-hal/cpu.uclamp.min"
+      ],
       "Values": [
         "0",
         "75"
@@ -137,7 +210,9 @@
     },
     {
       "Name": "GPUMaxFreq",
-      "Paths": ["/sys/class/kgsl/kgsl-3d0/max_pwrlevel"],
+      "Paths": [
+        "/sys/class/kgsl/kgsl-3d0/max_pwrlevel"
+      ],
       "Values": [
         "0",
         "1",
@@ -148,7 +223,9 @@
     },
     {
       "Name": "GPUMinFreq",
-      "Paths": ["/sys/class/kgsl/kgsl-3d0/min_pwrlevel"],
+      "Paths": [
+        "/sys/class/kgsl/kgsl-3d0/min_pwrlevel"
+      ],
       "Values": [
         "0",
         "1",
@@ -162,7 +239,9 @@
     },
     {
       "Name": "GPUForceRailOn",
-      "Paths": ["/sys/class/kgsl/kgsl-3d0/force_rail_on"],
+      "Paths": [
+        "/sys/class/kgsl/kgsl-3d0/force_rail_on"
+      ],
       "Values": [
         "1",
         "0"
@@ -172,7 +251,9 @@
     },
     {
       "Name": "GPUForceClkOn",
-      "Paths": ["/sys/class/kgsl/kgsl-3d0/force_clk_on"],
+      "Paths": [
+        "/sys/class/kgsl/kgsl-3d0/force_clk_on"
+      ],
       "Values": [
         "1",
         "0"
@@ -182,7 +263,9 @@
     },
     {
       "Name": "GPUIdleTimer",
-      "Paths": ["/sys/class/kgsl/kgsl-3d0/idle_timer"],
+      "Paths": [
+        "/sys/class/kgsl/kgsl-3d0/idle_timer"
+      ],
       "Values": [
         "10000",
         "58"
@@ -192,7 +275,9 @@
     },
     {
       "Name": "CPUBWHystTriggerCount",
-      "Paths": ["/sys/class/devfreq/soc:qcom,cpu-cpu-llcc-bw/bw_hwmon/hyst_trigger_count"],
+      "Paths": [
+        "/sys/class/devfreq/soc:qcom,cpu-cpu-llcc-bw/bw_hwmon/hyst_trigger_count"
+      ],
       "Values": [
         "0",
         "3"
@@ -202,7 +287,9 @@
     },
     {
       "Name": "CPUBWHistMemory",
-      "Paths": ["/sys/class/devfreq/soc:qcom,cpu-cpu-llcc-bw/bw_hwmon/hist_memory"],
+      "Paths": [
+        "/sys/class/devfreq/soc:qcom,cpu-cpu-llcc-bw/bw_hwmon/hist_memory"
+      ],
       "Values": [
         "0",
         "20"
@@ -212,7 +299,9 @@
     },
     {
       "Name": "CPUBWHystLength",
-      "Paths": ["/sys/class/devfreq/soc:qcom,cpu-cpu-llcc-bw/bw_hwmon/hyst_length"],
+      "Paths": [
+        "/sys/class/devfreq/soc:qcom,cpu-cpu-llcc-bw/bw_hwmon/hyst_length"
+      ],
       "Values": [
         "0",
         "10"
@@ -222,7 +311,9 @@
     },
     {
       "Name": "CPUBWMinFreq",
-      "Paths": ["/sys/class/devfreq/soc:qcom,cpu-cpu-llcc-bw/min_freq"],
+      "Paths": [
+        "/sys/class/devfreq/soc:qcom,cpu-cpu-llcc-bw/min_freq"
+      ],
       "Values": [
         "14236",
         "9155",
@@ -233,7 +324,9 @@
     },
     {
       "Name": "LLCCBWMinFreq",
-      "Paths": ["/sys/class/devfreq/soc:qcom,cpu-llcc-ddr-bw/min_freq"],
+      "Paths": [
+        "/sys/class/devfreq/soc:qcom,cpu-llcc-ddr-bw/min_freq"
+      ],
       "Values": [
         "6881",
         "2597",
@@ -244,7 +337,9 @@
     },
     {
       "Name": "L3BigClusterMinFreq",
-      "Paths": ["/sys/class/devfreq/soc:qcom,cpu4-cpu-l3-lat/min_freq"],
+      "Paths": [
+        "/sys/class/devfreq/soc:qcom,cpu4-cpu-l3-lat/min_freq"
+      ],
       "Values": [
         "1440000000",
         "300000000"
@@ -254,7 +349,9 @@
     },
     {
       "Name": "PMQoSCpuDmaLatency",
-      "Paths": ["/dev/cpu_dma_latency"],
+      "Paths": [
+        "/dev/cpu_dma_latency"
+      ],
       "Values": [
         "2c",
         "64"
@@ -263,7 +360,9 @@
     },
     {
       "Name": "UfsClkGateEnable",
-      "Paths": ["/sys/devices/platform/soc/1d84000.ufshc/clkgate_enable"],
+      "Paths": [
+        "/sys/devices/platform/soc/1d84000.ufshc/clkgate_enable"
+      ],
       "Values": [
         "0",
         "1"
@@ -273,7 +372,9 @@
     },
     {
       "Name": "DisplayWakeup",
-      "Paths": ["/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/sde-crtc-0/early_wakeup"],
+      "Paths": [
+        "/sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/sde-crtc-0/early_wakeup"
+      ],
       "Values": [
         "1",
         "0"
@@ -283,7 +384,9 @@
     },
     {
       "Name": "PowerHALMainState",
-      "Paths": ["vendor.powerhal.state"],
+      "Paths": [
+        "vendor.powerhal.state"
+      ],
       "Values": [
         "SUSTAINED_PERFORMANCE",
         ""
@@ -292,7 +395,9 @@
     },
     {
       "Name": "PowerHALAudioState",
-      "Paths": ["vendor.powerhal.audio"],
+      "Paths": [
+        "vendor.powerhal.audio"
+      ],
       "Values": [
         "AUDIO_STREAMING_LOW_LATENCY",
         ""
@@ -301,7 +406,9 @@
     },
     {
       "Name": "PowerHALRenderingState",
-      "Paths": ["vendor.powerhal.rendering"],
+      "Paths": [
+        "vendor.powerhal.rendering"
+      ],
       "Values": [
         "EXPENSIVE_RENDERING",
         ""
@@ -357,6 +464,12 @@
       "Node": "FGUClampBoost",
       "Duration": 3000,
       "Value": "20"
+    },
+    {
+      "PowerHint": "INTERACTION",
+      "Node": "FWUClampBoost",
+      "Duration": 3000,
+      "Value": "30"
     },
     {
       "PowerHint": "INTERACTION",
@@ -554,6 +667,48 @@
       "Node": "CPUBigClusterMaxFreq",
       "Duration": 0,
       "Value": "2016000"
+    },
+    {
+      "PowerHint": "ADPF_CPU_LOAD_UP",
+      "Node": "TAUClampBoost",
+      "Duration": 500,
+      "Value": "30"
+    },
+    {
+      "PowerHint": "ADPF_CPU_LOAD_UP",
+      "Node": "TAUClampLatency",
+      "Duration": 500,
+      "Value": "1"
+    },
+    {
+      "PowerHint": "ADPF_CPU_LOAD_UP",
+      "Node": "FWUClampBoost",
+      "Duration": 500,
+      "Value": "30"
+    },
+    {
+      "PowerHint": "ADPF_CPU_LOAD_RESET",
+      "Node": "TAUClampBoost",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "ADPF_CPU_LOAD_RESET",
+      "Node": "FWUClampBoost",
+      "Duration": 0,
+      "Value": "0"
+    },
+    {
+      "PowerHint": "ADPF_CPU_LOAD_RESUME",
+      "Node": "TAUClampBoost",
+      "Duration": 200,
+      "Value": "30"
+    },
+    {
+      "PowerHint": "ADPF_CPU_LOAD_RESUME",
+      "Node": "FWUClampBoost",
+      "Duration": 200,
+      "Value": "30"
     }
   ]
 }
