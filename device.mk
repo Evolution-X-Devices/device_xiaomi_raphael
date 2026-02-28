@@ -13,6 +13,9 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 # Project ID Quota
 $(call inherit-product, $(SRC_TARGET_DIR)/product/emulated_storage.mk)
 
+# Updatable APEXs are a necessity to boot in U.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
+
 # Add common definitions for Qualcomm
 $(call inherit-product, hardware/qcom-caf/common/common.mk)
 
@@ -46,6 +49,14 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/google/pixel \
     hardware/qcom-caf/common/libqti-perfd-client \
     hardware/xiaomi
+
+# Variant Properties
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,odm.*.prop,$(LOCAL_PATH)/configs/props/,$(TARGET_COPY_OUT_ODM)) \
+    $(call find-copy-subdir-files,product.*.prop,$(LOCAL_PATH)/configs/props/,$(TARGET_COPY_OUT_PRODUCT)) \
+    $(call find-copy-subdir-files,system.*.prop,$(LOCAL_PATH)/configs/props/,$(TARGET_COPY_OUT_SYSTEM)) \
+    $(call find-copy-subdir-files,system_ext.*.prop,$(LOCAL_PATH)/configs/props/,$(TARGET_COPY_OUT_SYSTEM_EXT)) \
+    $(call find-copy-subdir-files,vendor.*.prop,$(LOCAL_PATH)/configs/props/,$(TARGET_COPY_OUT_VENDOR))
 
 # IncrementalFS
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -164,6 +175,11 @@ PRODUCT_PACKAGES += \
     vendor.qti.hardware.btconfigstore@1.0.vendor \
     vendor.qti.hardware.btconfigstore@2.0.vendor
 
+# Blur
+PRODUCT_SYSTEM_EXT_PROPERTIES  += \
+    ro.sf.blurs_are_expensive=1 \
+    ro.surface_flinger.supports_background_blur=1
+
 # Board
 PRODUCT_USES_QCOM_HARDWARE := true
 PRODUCT_BOARD_PLATFORM := msmnile
@@ -198,28 +214,23 @@ PRODUCT_COPY_FILES += \
 # Display
 PRODUCT_PACKAGES += \
     android.hardware.graphics.composer@2.4-service \
-    gralloc.qcom \
-    hwcomposer.qcom
-
-PRODUCT_PACKAGES += \
     android.hardware.graphics.mapper@3.0-impl-qti-display \
     android.hardware.graphics.mapper@4.0-impl-qti-display \
-    vendor.qti.hardware.display.allocator-service
-
-PRODUCT_PACKAGES += \
-    vendor.qti.hardware.memtrack-service
-
-PRODUCT_PACKAGES += \
+    vendor.qti.hardware.memtrack-service \
+    gralloc.qcom \
+    hwcomposer.qcom \
     libdisplayconfig.qti \
     libdisplayconfig.system.qti \
     libgui_vendor \
     libqdMetaData \
     libqdMetaData.system \
     libtinyxml \
+    libvulkan \
     vendor.display.config@1.11.vendor \
     vendor.display.config@1.5 \
     vendor.display.config@2.0 \
     vendor.display.config@2.0.vendor \
+    vendor.qti.hardware.display.allocator-service \
     vendor.qti.hardware.display.allocator@1.0.vendor \
     vendor.qti.hardware.display.allocator@3.0.vendor \
     vendor.qti.hardware.display.allocator@4.0.vendor \
@@ -341,8 +352,6 @@ PRODUCT_PACKAGES += \
     init.xiaomi.rc \
     ueventd.qcom.rc
 
-$(call soong_config_set,libinit,vendor_init_lib,//$(LOCAL_PATH):init_xiaomi_raphael)
-
 # Keylayout
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/gpio-keys.kl:$(TARGET_COPY_OUT_SYSTEM)/usr/keylayout/gpio-keys.kl \
@@ -352,9 +361,15 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.hardware.keymaster@4.1.vendor
 
+# Kernel
+LOCAL_KERNEL := device/xiaomi/raphael-kernel/Image
+PRODUCT_COPY_FILES += \
+	$(LOCAL_KERNEL):kernel
+PRODUCT_ENABLE_UFFD_GC := true
+
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.xiaomi_raphael
+    android.hardware.light-service.lineage
 
 # Lineage Health
 PRODUCT_PACKAGES += \
@@ -459,12 +474,12 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/etc/hdr_config.cfg:$(TARGET_COPY_OUT_VENDOR)/etc/hdr_config.cfg
 
 # Partitions
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
+
 PRODUCT_PACKAGES += \
     vendor_bt_firmware_mountpoint \
     vendor_dsp_mountpoint \
     vendor_firmware_mnt_mountpoint
-
-PRODUCT_USE_DYNAMIC_PARTITIONS := true
 
 # Parts
 PRODUCT_PACKAGES += \
@@ -476,19 +491,12 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     android.hardware.power.stats@1.0-service.raphael
 
-# Partitions
-PRODUCT_PACKAGES += \
-    vendor_bt_firmware_mountpoint \
-    vendor_dsp_mountpoint \
-    vendor_firmware_mnt_mountpoint
-
 # Perf
 PRODUCT_PACKAGES += \
     libqti-perfd-client
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.2.vendor \
     android.hardware.power-service.pixel-libperfmgr
 
 # sendhint utility
@@ -546,10 +554,6 @@ PRODUCT_PACKAGES += \
     android.hardware.radio@1.5.vendor \
     android.hardware.radio.config@1.2.vendor \
     android.hardware.radio.deprecated@1.0.vendor
-
-# Recovery
-PRODUCT_PACKAGES += \
-    init_xiaomi_raphael.recovery
 
 # Seccomp
 PRODUCT_COPY_FILES += \
@@ -623,9 +627,6 @@ PRODUCT_PACKAGES += \
 
 # Update
 AB_OTA_UPDATER := false
-
-# UFFD GC
-OVERRIDE_ENABLE_UFFD_GC := false
 
 # USB
 PRODUCT_PACKAGES += \

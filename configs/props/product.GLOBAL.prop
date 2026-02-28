@@ -1,0 +1,9 @@
+#
+# Global variant specific props
+#
+ro.product.product.device=raphael
+ro.product.product.brand=Xiaomi
+ro.product.product.marketname=Mi 9T Pro
+ro.product.product.model=Mi 9T Pro
+ro.product.product.name=raphael
+ro.product.build.fingerprint=Xiaomi/raphael/raphael:11/RKQ1.200826.002/V12.5.2.0.RFKMIXM:user/release-keys

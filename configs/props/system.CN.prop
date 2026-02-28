@@ -1,0 +1,17 @@
+#
+# CN variant specific props
+#
+ro.boot.product.hardware.sku=nfc
+ro.build.product=raphael
+ro.product.brand=Xiaomi
+ro.product.board=raphael
+ro.product.device=raphael
+ro.product.marketname=Redmi K20 Pro
+ro.product.model=Redmi K20 Pro
+ro.product.name=raphael
+ro.product.system.device=raphael
+ro.product.system.name=raphael
+ro.product.system.brand=Xiaomi
+ro.product.system.marketname=Redmi K20 Pro
+ro.product.system.model=Redmi K20 Pro
+ro.system.build.fingerprint=Xiaomi/raphael/raphael:11/RKQ1.200826.002/V12.5.6.0.RFKCNXM:user/release-keys

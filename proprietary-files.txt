@@ -1,12 +1,12 @@
 # All unpinned blobs are extracted from V12.5.6
 
-# ACDB Loader
-vendor/lib/libacdb-fts.so
-vendor/lib/libacdbloader.so
-vendor/lib/libacdbrtac.so
-vendor/lib64/libacdb-fts.so
-vendor/lib64/libacdbloader.so
-vendor/lib64/libacdbrtac.so
+# ACDB Loader - from nabu OS1.0.18.0.TKXINXM
+vendor/lib/libacdb-fts.so|8d6477dfcea0b412750a905b566a72dc4c307019
+vendor/lib/libacdbloader.so|8a9385d80c9c83269cf52708114a25e61a93bea9
+vendor/lib/libacdbrtac.so|c289259cb561a35dffd7530ea7d470ee2971aae8
+vendor/lib64/libacdb-fts.so|c4c49d83170457d67347f2ca902c7125095f4ce0
+vendor/lib64/libacdbloader.so|b0d62f9f6fac78f1d091a5b0968d2415d85b0229
+vendor/lib64/libacdbrtac.so|b1c4893b8256647d433786c7e601fe86da9fdd44
 
 # ACDB
 vendor/etc/acdbdata/Forte/Forte_Bluetooth_cal.acdb
@@ -19,6 +19,21 @@ vendor/etc/acdbdata/Forte/Forte_Headset_cal.acdb
 vendor/etc/acdbdata/Forte/Forte_Speaker_cal.acdb
 vendor/etc/acdbdata/Forte/Forte_workspaceFile.qwsp
 vendor/etc/acdbdata/adsp_avs_config.acdb
+
+# ADSP - from nabu OS1.0.18.0.TKXINXM
+vendor/bin/adsprpcd|c1b9fe936ffbcd5a875baa785f4b9629366083ec
+vendor/etc/init/vendor.qti.adsprpc-service.rc|54588df8e7da58c66838028d2284986b966c2d37
+vendor/etc/seccomp_policy/vendor.qti.hardware.dsp.policy|8119845f8e6a24e53bdf286e19f34e9906d64e78
+vendor/lib/libadsp_default_listener.so|92ca2faf693eb488394440b94b6deb73fe9504e2
+vendor/lib/libadsprpc.so|437f6ab24e5a08de250529bf0adf5ecaed88817d
+vendor/lib/libmdsprpc.so|f9cabbd95f91e9fa90e21c48349adbdd825a05ff
+vendor/lib/libsdsprpc.so|091682459f41566a3909da301a06be2008efb493
+vendor/lib/vendor.qti.hardware.dsp@1.0.so|94f60e5fddc9cc31306ea87420b4db9af44911b0
+vendor/lib64/libadsp_default_listener.so|84ffb0536efd42fb0ebc67c194f88da3da6ca9de
+vendor/lib64/libadsprpc.so|5e677d9e7ecc56d8c9bf7bcc49f1e717b5669aad
+vendor/lib64/libmdsprpc.so|523f6501e39101a9d61baffccd20a0d2848e3524
+vendor/lib64/libsdsprpc.so|96ed968d5d79c3fe8c37f331082c16cf5212dc52
+vendor/lib64/vendor.qti.hardware.dsp@1.0.so|b4fb4608e14ef4a74ceeec1ed6851cb139be57e9
 
 # ADSP Modules
 vendor/lib/rfsa/adsp/dirac_resource.dar
@@ -49,24 +64,9 @@ vendor/lib/rfsa/adsp/misound_karaoke_res.bin
 vendor/lib/rfsa/adsp/misound_karaokemix_res.bin
 vendor/lib/rfsa/adsp/misound_res.bin
 
-# ADSP
-vendor/bin/adsprpcd
-vendor/etc/init/vendor.qti.adsprpc-service.rc
-vendor/etc/seccomp_policy/vendor.qti.hardware.dsp.policy
-vendor/lib/libadsp_default_listener.so
-vendor/lib/libadsprpc.so
-vendor/lib/libmdsprpc.so
-vendor/lib/libsdsprpc.so
-vendor/lib/vendor.qti.hardware.dsp@1.0.so
-vendor/lib64/libadsp_default_listener.so
-vendor/lib64/libadsprpc.so
-vendor/lib64/libmdsprpc.so
-vendor/lib64/libsdsprpc.so
-vendor/lib64/vendor.qti.hardware.dsp@1.0.so
-
-# ANT+
-system_ext/lib/com.qualcomm.qti.ant@1.0.so
-system_ext/lib64/com.qualcomm.qti.ant@1.0.so
+# ANT+ - from nabu OS1.0.18.0.TKXINXM
+system_ext/lib/com.qualcomm.qti.ant@1.0.so|c1a0894e23411b77971a5a87a81165ca8a3866a6
+system_ext/lib64/com.qualcomm.qti.ant@1.0.so|2bdd0b1538f514f237c2ed3915d755cdbd5e2743
 
 # Alarm (system) - LA.QSSI.13.0.r1-09700-qssi.0
 system_ext/app/PowerOffAlarm/PowerOffAlarm.apk|cbf84c83add302037b8ee9ec0f619f3dccb02f24
@@ -140,18 +140,20 @@ vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.0.so
 vendor/lib64/vendor.qti.hardware.bluetooth_sar@1.1.so
 vendor/lib64/vendor.qti.hardware.fm@1.0.so;MODULE_SUFFIX=_vendor
 
-# CDSP
-vendor/bin/cdsprpcd
-vendor/etc/init/vendor.qti.cdsprpc-service.rc
-vendor/lib/libcdsp_default_listener.so
-vendor/lib/libcdsprpc.so
-vendor/lib/libfastcrc.so
-vendor/lib/libsysmon_cdsp_skel.so
-vendor/lib64/libcdfw.so
-vendor/lib64/libcdfw_remote_api.so
-vendor/lib64/libcdsp_default_listener.so
-vendor/lib64/libcdsprpc.so
-vendor/lib64/libsysmon_cdsp_skel.so
+# CDSP - from LA.UM.9.1.r1-13700-SMxxx0.QSSI13.0
+vendor/bin/cdsprpcd|530bcfcf9a31dedcc6c8ff5ea33fbaf8c03ab877
+vendor/bin/dspservice|a7344fc3d27a49df30858ebc3f73ee5818e752d4
+vendor/etc/init/vendor.qti.cdsprpc-service.rc|36772b70216796e8ef19376d9c6a81ee9ffff549
+vendor/etc/init/vendor.qti.hardware.dsp@1.0-service.rc|fbf2bb38ca6bdddf98c7123da9e1f263a4eec55f
+vendor/lib/libcdsp_default_listener.so|6a3f97faf26da3d01f7895d37c09c8bc62030e0a
+vendor/lib/libcdsprpc.so|63095e25815ba4fc3619434c1acb7e03944f35bb
+vendor/lib/libfastcrc.so|cfb3b3b9b26df3cc52d06c8f4c1b49e1f7cd6953
+vendor/lib/libsysmon_cdsp_skel.so|b0dd56ca83493e68dc7610d44045849bb3bd8c38
+vendor/lib64/libcdfw.so|140ed3d10b68609ddc0ff75021a3b30508e1c6f5
+vendor/lib64/libcdfw_remote_api.so|8278ba42253fe2217fb87fe651fc4e1d21f1f85c
+vendor/lib64/libcdsp_default_listener.so|81e5f4737bfb7e2f0a906183b2a8357a5053ee5c
+vendor/lib64/libcdsprpc.so|c03fcc9f80e9ec660d70ea55545308cb057faf16
+vendor/lib64/libsysmon_cdsp_skel.so|8a951e039071107317e0e7541ff4df7ad35d87ad
 
 # CNE - from LA.UM.9.1.r1-13700-SMxxx0.QSSI13.0
 vendor/app/CneApp/CneApp.apk;REQUIRED=CneApp.libvndfwk_detect_jni.qti_symlink|345dc6c677e9bd7a7d36033b8955e90d2a1594d5
@@ -243,22 +245,6 @@ vendor/lib64/libmivendor_module_calibration.so
 vendor/lib64/libmivendor_module_hall.so
 vendor/lib64/libmivendor_module_motor.so
 vendor/lib64/mi.motor.daemon.so
-
-# Camera provider
-vendor/lib/camera.device@1.0-impl.so
-vendor/lib/camera.device@3.2-impl.so
-vendor/lib/camera.device@3.3-impl.so
-vendor/lib/camera.device@3.4-impl.so
-vendor/lib/camera.device@3.5-impl.so
-vendor/lib/vendor.qti.hardware.camera.device@2.0.so
-vendor/lib64/camera.device@1.0-impl.so
-vendor/lib64/camera.device@3.2-impl.so
-vendor/lib64/camera.device@3.3-impl.so
-vendor/lib64/camera.device@3.4-impl.so
-vendor/lib64/camera.device@3.5-impl.so
-vendor/lib64/vendor.qti.hardware.camera.device@2.0.so
-vendor/lib64/vendor.qti.hardware.camera.device@3.5.so
-vendor/lib64/android.hardware.camera.provider@2.4-legacy.so
 
 # Camera
 vendor/bin/remosaic_daemon
@@ -513,51 +499,48 @@ vendor/etc/init/dpmQmiMgr.rc|1538743661a5c48c15cd105beaad20f72953885a
 vendor/lib64/com.qualcomm.qti.dpm.api@1.0.so;MODULE_SUFFIX=_vendor|d9f1aa7f93b928f42499d613d20ccbc60f279097
 vendor/lib64/libdpmqmihal.so|41eb89e66ba065c43a5eb79cd3c72cef0ee167aa
 
-# DRM (Widevine L1)
-vendor/lib/liboemcrypto.so
-vendor/lib64/liboemcrypto.so
-
-# DRM
-vendor/bin/hw/android.hardware.drm@1.3-service.widevine
-vendor/bin/hw/vendor.qti.hardware.qseecom@1.0-service
-vendor/bin/qseecomd
-vendor/etc/init/qseecomd.rc
-vendor/etc/init/vendor.qti.hardware.qseecom@1.0-service.rc
-vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.3-service.widevine.xml
-vendor/lib/libQSEEComAPI.so
-vendor/lib/libbase64.so
-vendor/lib/libcpion.so
-vendor/lib/libcppf.so
-vendor/lib/libdrmfs.so
-vendor/lib/librmp.so
-vendor/lib/libtrustedapploader.so
-vendor/lib/mediadrm/libwvdrmengine.so
-vendor/lib64/hw/vendor.qti.hardware.qseecom@1.0-impl.so
-vendor/lib64/libGPreqcancel.so
-vendor/lib64/libGPreqcancel_svc.so
-vendor/lib64/libQSEEComAPI.so
-vendor/lib64/libQTEEConnector_listener.so
-vendor/lib64/libSecureUILib.so
-vendor/lib64/libStDrvInt.so
-vendor/lib64/libbase64.so
-vendor/lib64/libcpion.so
-vendor/lib64/libdrmfs.so
-vendor/lib64/libdrmtime.so
-vendor/lib64/libminksocket.so
-vendor/lib64/libops.so
-vendor/lib64/libqisl.so
-vendor/lib64/librmp.so
-vendor/lib64/librpmb.so
-vendor/lib64/libsecureui.so
-vendor/lib64/libsecureui_svcsock.so
-vendor/lib64/libsi.so
-vendor/lib64/libspl.so
-vendor/lib64/libssd.so
-vendor/lib64/libtrustedapploader.so
-vendor/lib64/libtzdrmgenprov.so
-vendor/lib64/libwvhidl.so
-vendor/lib64/mediadrm/libwvdrmengine.so
-vendor/lib64/vendor.qti.hardware.qseecom@1.0.so
+# DRM - from nabu OS1.0.18.0.TKXINXM
+vendor/bin/hw/android.hardware.drm@1.3-service.widevine|07ac13a602f25788e54c1500c2957f561dd9f90a
+vendor/bin/hw/vendor.qti.hardware.qseecom@1.0-service|ffbf257b96f2e7a69d192dff0badf636a4f805e4
+vendor/bin/qseecomd|1721d6999807c7aacc857a2001133f03f4c7c4a1
+vendor/etc/init/qseecomd.rc|9c3b9c649e2bb8959b14d0e1278a390ddb15dc5e
+vendor/etc/init/vendor.qti.hardware.qseecom@1.0-service.rc|0f43244d70d5efc1e4f089b926a9dc4f59e53db1
+vendor/etc/vintf/manifest/manifest_android.hardware.drm@1.3-service.widevine.xml|ebebcf8f367641480cf7d512fc06e6ab777527be
+vendor/lib/mediadrm/libwvdrmengine.so|bf1072333fdd4d02cb95a77b3373bcc3a881f7e9
+vendor/lib/libQSEEComAPI.so|3f30cb9b3f5920caabfbe8ba6949460dff83f4be
+vendor/lib/libbase64.so|fb77cc69b5244f0da46dfa14f2ff8225260871a6
+vendor/lib/libcpion.so|ca8f31678a81213d5a808da56be28d6e3fccebe2
+vendor/lib/libcppf.so|dd023cb717e2104444f633aa0fdffcb35f380c6d
+vendor/lib/libdrmfs.so|f04bd0f516701def61106193448ccb79c732c121
+vendor/lib/liboemcrypto.so|bd6c31e31016704fdf58ce10e8787bdf0e8d6398
+vendor/lib/librmp.so|6b3e5beb2e2d834e0bf47be4093c72bd82316c26
+vendor/lib/libtrustedapploader.so|b4197cb22bc73a7a71ecc677ac45facd1a0e77a3
+vendor/lib64/hw/vendor.qti.hardware.qseecom@1.0-impl.so|82ab2c21730099498c7c63105b32cbe485aa9462
+vendor/lib64/mediadrm/libwvdrmengine.so|907210f5e151fde9e517ebdc302b619cc8fc7fff
+vendor/lib64/libGPreqcancel.so|7e47b162a5baa4570a8f53f4d4451fd57c391210
+vendor/lib64/libGPreqcancel_svc.so|35b71c1ff3816de1089901d3b32af39ece4c315c
+vendor/lib64/libQSEEComAPI.so|835aca441f1cafc0be2d7df9bffe11d9b1534e35
+vendor/lib64/libQTEEConnector_listener.so|bd2d7041c20eeeb85436696377edfbd1d302df49
+vendor/lib64/libSecureUILib.so|43203f3bea932e602672177eee2fe94df3e98e70
+vendor/lib64/libStDrvInt.so|9750d6defe78d06b92221f091f3dcf77c40ee596
+vendor/lib64/libbase64.so|cc6ab04a8188b065cbce22006b256a627fb7e4f5
+vendor/lib64/libcpion.so|4c718f3e8413f67b316aed0b8491a685681825af
+vendor/lib64/libdrmfs.so|622e74033bfe9f07d4686a936367b620fcdb3a7c
+vendor/lib64/libdrmtime.so|012ce75364db4108ca811f730cb2add4d2c32c45
+vendor/lib64/liboemcrypto.so|9aad24f21a73880ff304925f2859695664bd973c
+vendor/lib64/libops.so|bfca36a39fad0098bc1fef91f0879c17230dd037
+vendor/lib64/libqisl.so|4a2f72346c7f4b3368b88582da7cc7487a3be5ce
+vendor/lib64/librmp.so|ca2d1ba1cf54c26c32da10000b421ed0e06fe349
+vendor/lib64/librpmb.so|242742ba92bab2c67d66fe581fc83d9d1c5e8ad6
+vendor/lib64/libsecureui.so|0e8ff2a1b7b19fa65b7d575d286912e5c5710f44
+vendor/lib64/libsecureui_svcsock.so|0d17798788c8fc7e48a18ed04ec0215247fcb2cf
+vendor/lib64/libsi.so|15654096a6c36ee2894f3d9c8134444f05789171
+vendor/lib64/libspl.so|0fa8c0711f72fc8a914dce044cf8dddd79ee62e1
+vendor/lib64/libssd.so|87556d685d37f77f212d45a8e5ce13c64f162d78
+vendor/lib64/libtrustedapploader.so|83efdf29c9a85409ca973b5e0c8610a7449748d9
+vendor/lib64/libtzdrmgenprov.so|70cbdce58abc9db3f8134817e88a20cd7be3fc49
+vendor/lib64/libwvhidl.so|0bbd61687d708cf657da4890403730bf8f887899
+vendor/lib64/vendor.qti.hardware.qseecom@1.0.so|b466ec004b952d9c4778c62ec700a5bf299ac619
 
 # Display - from LA.UM.9.1.r1-13700-SMxxx0.QSSI13.0
 vendor/lib64/libdisp-aba.so|44993853ff9d4340e856e6f53d802f10372442d3
@@ -728,11 +711,11 @@ vendor/firmware/a650_gmu.bin
 vendor/firmware/a650_sqe.fw
 vendor/firmware/a650_zap.elf
 
-# HotwordEnrollment - from MIUI 12.5.2
-product/priv-app/HotwordEnrollmentOKGoogleHEXAGON/HotwordEnrollmentOKGoogleHEXAGON.apk|62e301d2f386771facd9a9aa546c0fcc241116da
-product/priv-app/HotwordEnrollmentXGoogleHEXAGON/HotwordEnrollmentXGoogleHEXAGON.apk|8639661f6fad570723bc6f2759da76604bd804fa
-system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml|563a58554d9c0dd0608552b644fbf74519a447bb
-system_ext/framework/com.android.hotwordenrollment.common.util.jar|bef92589e75a6da6043f85f4b9b0e85866429624
+# HotwordEnrollment - from nabu OS1.0.18.0.TKXINXM
+product/priv-app/HotwordEnrollmentOKGoogleHEXAGON_WIDEBAND/HotwordEnrollmentOKGoogleHEXAGON_WIDEBAND.apk|5263386e75fe0b7a9e7e15e858e44cceb287f447
+product/priv-app/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND.apk|2cc58266dec9d3ac915b0e3e65d554b0b3daf5cd
+system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml|99cfd80965c170f4885a7dd62c0eaad1a0c7840f
+system_ext/framework/com.android.hotwordenrollment.common.util.jar|7549028e83df9783ea5c7fbf78e5d904e2de0cf7
 
 # IPA Firmware
 vendor/firmware/ipa_fws.b00
@@ -763,25 +746,27 @@ vendor/lib64/libkeymasterprovision.so
 vendor/lib64/libkeymasterutils.so
 vendor/lib64/libqtikeymaster4.so
 
-# Listen
+# Listen (sound_trigger)
 vendor/lib/hw/sound_trigger.primary.msmnile.so
-vendor/lib/libadpcmdec.so
-vendor/lib/libcapiv2svacnn.so
-vendor/lib/libcapiv2vop.so
-vendor/lib/libgcs-calwrapper.so
-vendor/lib/libgcs-ipc.so
-vendor/lib/libgcs-osal.so
-vendor/lib/libgcs.so
-vendor/lib/liblistensoundmodel2.so
-vendor/lib/libsmwrapper.so
 vendor/lib64/hw/sound_trigger.primary.msmnile.so
-vendor/lib64/libcapiv2svacnn.so
-vendor/lib64/libcapiv2vop.so
-vendor/lib64/libgcs-calwrapper.so
-vendor/lib64/libgcs-ipc.so
-vendor/lib64/libgcs-osal.so
-vendor/lib64/libgcs.so
-vendor/lib64/liblistensoundmodel2.so
+
+# Listen - from nabu OS1.0.18.0.TKXINXM
+vendor/lib/libadpcmdec.so|5232c32b93a8653612cd8fcdde161a9d7fe39c7f
+vendor/lib/libcapiv2svacnn.so|10271e9d5a32377740292bcf27f35098ee65fb5b
+vendor/lib/libcapiv2vop.so|ffde544a5b8b4db988e92308568a84caad80518e
+vendor/lib/libgcs-calwrapper.so|acfa515a37aa7239a7a275747b9752d023a665f5
+vendor/lib/libgcs-ipc.so|d74bee806d092bcb6625ed93bed9029fbf1a5f6a
+vendor/lib/libgcs-osal.so|c8055991809da427b5fdf0b18b67cefc7b17a399
+vendor/lib/libgcs.so|24e01e85ec9a94a7dab285cc530b3ff504df2022
+vendor/lib/liblistensoundmodel2.so|8e5d795988c666c7d8c42653d6eab231bb5952cc
+vendor/lib/libsmwrapper.so|26493487f66dabddd416f07250630ad80bf49de2
+vendor/lib64/libcapiv2svacnn.so|2feddde9dfee7ba606b72266d1b42e95d0e03c70
+vendor/lib64/libcapiv2vop.so|23a80adfacbfe48b8b4b57d74b3f4f847447ddf5
+vendor/lib64/libgcs-calwrapper.so|1783e0ab09c12f7321054671e44b565f525ee096
+vendor/lib64/libgcs-ipc.so|3ba7c6f0ee1b9b8623811dcb8cb674511cf61f0a
+vendor/lib64/libgcs-osal.so|59ab5c733b8ded09a79dd6e233536c965ed0887c
+vendor/lib64/libgcs.so|223bbf23183122d53921fbefab57f2658cce019a
+vendor/lib64/liblistensoundmodel2.so|53303a1046d4684e8d5c13104f30a73b2ad414dc
 
 # Machine Learning
 vendor/bin/npu_launcher
@@ -836,7 +821,7 @@ vendor/lib64/libmlipay.so
 vendor/lib64/libmlipay@1.1.so
 
 # NFC Firmware
-vendor/lib/libsn100u_fw.so
+vendor/lib/libsn100u_fw.so:vendor/lib64/libsn100u_fw.so
 
 # Neural Networks - from LA.UM.9.1.r1-13700-SMxxx0.QSSI13.0
 vendor/bin/hw/android.hardware.neuralnetworks@1.3-service-qti|d8f5981b1bedaa9cbef1b9fc93a400dc98e89cfa

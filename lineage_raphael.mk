@@ -5,7 +5,7 @@
 #
 
 # Inherit from those products. Most specific first.
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit_only.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 
@@ -27,8 +27,11 @@ TARGET_HAS_UDFPS := true
 BYPASS_CHARGE_SUPPORTED := true
 
 # Boot animation
-TARGET_SCREEN_HEIGHT := 2340
+TARGET_SCREEN_HEIGHT := 2400
 TARGET_SCREEN_WIDTH := 1080
+
+# Exclude QCOM powerhal manifest
+TARGET_PROVIDES_POWERHAL := true
 
 # Device identifier. This must come after all inclusions.
 PRODUCT_NAME := lineage_raphael

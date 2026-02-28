@@ -1,0 +1,9 @@
+#
+# India variant specific props
+#
+ro.product.system_ext.device=raphaelin
+ro.product.system_ext.brand=Xiaomi
+ro.product.system_ext.marketname=Redmi K20 Pro
+ro.product.system_ext.model=Redmi K20 Pro
+ro.product.system_ext.name=raphaelin
+ro.system_ext.build.fingerprint=Xiaomi/raphaelin/raphaelin:11/RKQ1.200826.002/V12.5.1.0.RFKINXM:user/release-keys

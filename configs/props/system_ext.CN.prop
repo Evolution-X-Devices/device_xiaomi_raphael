@@ -1,0 +1,9 @@
+#
+# CN variant specific props
+#
+ro.product.system_ext.device=raphael
+ro.product.system_ext.brand=Xiaomi
+ro.product.system_ext.marketname=Redmi K20 Pro
+ro.product.system_ext.model=Redmi K20 Pro
+ro.product.system_ext.name=raphael
+ro.system_ext.build.fingerprint=Xiaomi/raphael/raphael:11/RKQ1.200826.002/V12.5.6.0.RFKCNXM:user/release-keys

@@ -1,0 +1,16 @@
+#
+# CN variant specific props
+#
+ro.build.product=raphaelin
+ro.product.brand=Xiaomi
+ro.product.board=raphaelin
+ro.product.device=raphaelin
+ro.product.marketname=Redmi K20 Pro
+ro.product.model=Redmi K20 Pro
+ro.product.name=raphaelin
+ro.product.system.device=raphaelin
+ro.product.system.name=raphaelin
+ro.product.system.brand=Xiaomi
+ro.product.system.marketname=Redmi K20 Pro
+ro.product.system.model=Redmi K20 Pro
+ro.system.build.fingerprint=Xiaomi/raphaelin/raphaelin:11/RKQ1.200826.002/V12.5.1.0.RFKINXM:user/release-keys

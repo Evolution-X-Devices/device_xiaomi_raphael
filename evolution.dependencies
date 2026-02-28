@@ -1,5 +1,13 @@
 [
   {
+    "repository": "device_xiaomi_raphael-kernel",
+    "target_path": "device/xiaomi/raphael-kernel"
+  },
+  {
+    "repository": "device_xiaomi_raphael-firmware",
+    "target_path": "device/xiaomi/raphael-firmware"
+  },
+  {
     "repository": "vendor_xiaomi_raphael",
     "target_path": "vendor/xiaomi/raphael"
   },

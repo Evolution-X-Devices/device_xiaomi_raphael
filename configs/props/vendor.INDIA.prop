@@ -1,0 +1,20 @@
+#
+# India variant specific props
+#
+ro.build.product=raphaelin
+ro.product.brand=Xiaomi
+ro.product.board=raphael
+ro.product.marketname=Redmi K20 Pro
+ro.product.device=raphaelin
+ro.product.model=Redmi K20 Pro
+ro.product.name=raphaelin
+ro.product.vendor.brand=Xiaomi
+ro.product.vendor.device=raphaelin
+ro.product.vendor.model=Redmi K20 Pro
+ro.product.vendor.name=raphaelin
+ro.product.bootimage.device=raphael
+ro.product.bootimage.name=raphaelin
+ro.product.bootimage.brand=Xiaomi
+ro.product.bootimage.marketname=Redmi K20 Pro
+ro.product.bootimage.model=Redmi K20 Pro
+ro.vendor.build.fingerprint=Xiaomi/raphaelin/raphaelin:11/RKQ1.200826.002/V12.5.1.0.RFKINXM:user/release-keys

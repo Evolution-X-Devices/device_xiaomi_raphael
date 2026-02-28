@@ -1,0 +1,5 @@
+# ODM
+ro.vendor.qti.va_odm.support=1
+
+# Model properties
+import /system/odm.${ro.boot.hwc}.prop

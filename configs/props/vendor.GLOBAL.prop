@@ -1,0 +1,21 @@
+#
+# Global variant specific props
+#
+ro.boot.product.hardware.sku=nfc
+ro.build.product=raphael
+ro.product.brand=Xiaomi
+ro.product.board=raphael
+ro.product.marketname=Mi 9T Pro
+ro.product.device=raphael
+ro.product.model=Mi 9T Pro
+ro.product.name=raphael
+ro.product.vendor.brand=Xiaomi
+ro.product.vendor.device=raphael
+ro.product.vendor.model=Mi 9T Pro
+ro.product.vendor.name=raphael
+ro.product.bootimage.device=raphael
+ro.product.bootimage.name=raphael
+ro.product.bootimage.brand=Xiaomi
+ro.product.bootimage.marketname=Mi 9T Pro
+ro.product.bootimage.model=Mi 9T Pro
+ro.vendor.build.fingerprint=Xiaomi/raphael/raphael:11/RKQ1.200826.002/V12.5.2.0.RFKMIXM:user/release-keys

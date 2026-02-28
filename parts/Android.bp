@@ -23,4 +23,8 @@ android_app {
         "vendor.xiaomi.hardware.motor-V1.0-java",
         "org.lineageos.settings.resources",
     ],
+
+    optimize: {
+        proguard_flags_files: ["proguard.flags"],
+    },
 }

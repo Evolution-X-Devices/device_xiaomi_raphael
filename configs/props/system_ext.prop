@@ -54,3 +54,6 @@ persist.timed.enable=true
 
 # Printk
 persist.vendor.console.silent.config=1
+
+# Model properties
+import /system/system_ext.${ro.boot.hwc}.prop
