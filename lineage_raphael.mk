@@ -30,9 +30,6 @@ BYPASS_CHARGE_SUPPORTED := true
 TARGET_SCREEN_HEIGHT := 2400
 TARGET_SCREEN_WIDTH := 1080
 
-# Exclude QCOM powerhal manifest
-TARGET_PROVIDES_POWERHAL := true
-
 # Device identifier. This must come after all inclusions.
 PRODUCT_NAME := lineage_raphael
 PRODUCT_DEVICE := raphael

@@ -22,9 +22,6 @@ ro.vendor.fm.use_audio_session		u:object_r:exported_system_prop:s0
 # Mlipay
 persist.vendor.sys.pay.     		u:object_r:vendor_tee_listener_prop:s0
 
-# Power
-vendor.powerhal.            		u:object_r:vendor_power_prop:s0
-
 # Sensors
 persist.sensor.sardisable   		u:object_r:vendor_sensors_prop:s0
 
