@@ -4,6 +4,10 @@ ro.hardware.audio.primary=raphael
 # Camera
 ro.product.mod_device=raphael_global
 
+# The Xiaomi camera HAL expects camera ids to be its role ids. Translate the
+# framework ids 0..10 through the legacy provider's remap list.
+vendor.camera.remapid=0 1 20 21 60 61 62 63 120 100 101
+
 # Fingerprint
 persist.vendor.fingerprint.sensor_location=540|2026|95
 persist.vendor.fingerprint.type=udfps_optical
