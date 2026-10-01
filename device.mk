@@ -38,6 +38,7 @@ $(call inherit-product-if-exists, device/xiaomi/miuicamera/device.mk)
 PRODUCT_PACKAGES += \
     libMegviiFacepp-0.5.2 \
     libmegface \
+    libmpbase_shim \
     libpiex_shim
 
 # Camera motor

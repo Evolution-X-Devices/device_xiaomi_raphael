@@ -4,9 +4,17 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
+import os
+
 from extract_utils.fixups_blob import (
     blob_fixup,
     blob_fixups_user_type,
+)
+from extract_utils.tools import (
+    patchelf_version_path_map,
+)
+from extract_utils.utils import (
+    run_cmd,
 )
 from extract_utils.fixups_lib import (
     lib_fixups,
@@ -15,6 +23,17 @@ from extract_utils.main import (
     ExtractUtils,
     ExtractUtilsModule,
 )
+
+
+def mpbase_use_padding_shim(ctx, file, file_path, *args, **kwargs):
+    # Route libmpbase's malloc/realloc through libmpbase_shim, which pads
+    # large allocations (the refocus engine reads past their end).
+    syms = f'{file_path}.syms'
+    with open(syms, 'w') as f:
+        f.write('malloc mpbase_shim_malloc\nrealloc mpbase_shim_realloc\n')
+    run_cmd([patchelf_version_path_map['0_18'], '--rename-dynamic-symbols', syms, file_path])
+    os.remove(syms)
+
 
 blob_fixups: blob_fixups_user_type = {
     'vendor/etc/init/init.batterysecret.rc': blob_fixup()
@@ -63,9 +82,13 @@ blob_fixups: blob_fixups_user_type = {
         .clear_symbol_version('remote_handle64_open')
         .clear_symbol_version('remote_register_dma_handle')
         .clear_symbol_version('remote_register_dma_handle_attr'),
+    'vendor/lib64/libmpbase.so': blob_fixup()
+        .call(mpbase_use_padding_shim)
+        .add_needed('libmpbase_shim.so'),
 }  # fmt: skip
 
 namespace_imports = [
+    'device/xiaomi/raphael',
     'hardware/qcom-caf/common/libqti-perfd-client',
     'hardware/qcom-caf/sm8150',
     'hardware/xiaomi',
