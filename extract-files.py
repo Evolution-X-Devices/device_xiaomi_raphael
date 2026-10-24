@@ -21,6 +21,14 @@ blob_fixups: blob_fixups_user_type = {
         .regex_replace('.*seclabel u:r:batterysecret:s0\n', ''),
     'vendor/etc/sensors/hals.conf': blob_fixup()
         .add_line_if_missing('sensors.udfps.so'),
+    'vendor/etc/init/vendor.sensors.sscrpcd.rc': blob_fixup()
+        .regex_replace(
+            r'capabilities BLOCK_SUSPEND\n',
+            'capabilities BLOCK_SUSPEND\n'
+            '    # The fastrpc default search path. Set it so apps_std stops logging a\n'
+            '    # failed getenv on every file it opens (the backlight, several times a second).\n'
+            '    setenv ADSP_LIBRARY_PATH ";/vendor/lib/rfsa/adsp;/vendor/lib/rfsa/dsp;/vendor/dsp"\n',
+        ),
     'vendor/lib/hw/audio.primary.raphael.so': blob_fixup()
         .binary_regex_replace(
             b'/vendor/lib/liba2dpoffload.so',
