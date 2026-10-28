@@ -6,3 +6,12 @@
 
 soong_namespace {
 }
+
+prebuilt_etc {
+    name: "RemovePackages",
+    src: "remove_packages",
+    installable: false,
+    overrides: [
+        "Gallery", "Gallery2", "Gallery3D", "GalleryNew3D", "Glimpse", "PhotoTable",
+    ],
+}
